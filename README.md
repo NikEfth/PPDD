@@ -6,8 +6,8 @@ is the backend for the projection data and [QWT](http://qwt.sourceforge.net/) is
 
 ![screenshot from 2017-12-22 19-04-00](https://user-images.githubusercontent.com/8995070/34312027-062d41b6-e759-11e7-909a-fddcad1e96c6.png)
 
-***Warning (22/12/17) 
-The CMake file is still a bit of a mess, so please be sure the you have installed STIR and QWT before hand. ***
+***Warning (22/12/17)*** 
+**The CMake file is still a bit of a mess, so please be sure the you have installed STIR and QWT before hand. **
 
 ## Installation
 ### Linux systems
