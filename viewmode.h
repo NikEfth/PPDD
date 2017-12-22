@@ -2,6 +2,7 @@
 #define VIEWMODE_H
 
 #include <QDialog>
+#include <QDialogButtonBox>
 
 namespace Ui {
 class ViewMode;
@@ -15,8 +16,14 @@ public:
     explicit ViewMode(QWidget *parent = 0);
     ~ViewMode();
 
+private slots:
+void on_buttonBox_clicked(QAbstractButton *button);
+
 private:
     Ui::ViewMode *ui;
+    QDialogButtonBox *buttonBox;
+
+    QPushButton *btn_sino, *btn_view;
 };
 
 #endif // VIEWMODE_H

@@ -1,2 +1,8 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/icons">
+        <file>resources/icons8-microbeam-radiation-therapy-16.png</file>
+        <file>resources/icons8-microbeam-radiation-therapy-30.png</file>
+        <file>resources/icons8-microbeam-radiation-therapy-50.png</file>
+        <file>resources/icons8-microbeam-radiation-therapy-80.png</file>
+    </qresource>
+</RCC>
