@@ -1,0 +1,327 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"data",
+				"data_info_sptr"
+			],
+			[
+				"data_in",
+				"data_info_ptr"
+			],
+			[
+				"share",
+				"shared_ptr"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 131.0,
+		"last_filter": "Package Control: instl",
+		"selected_items":
+		[
+			[
+				"Package Control: instl",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 497.0
+	},
+	"console":
+	{
+		"height": 151.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/nikos/Workspace/sino_viewer/CMakeLists.txt",
+		"/home/nikos/Workspace/sino_viewer/main.cpp",
+		"/home/nikos/Workspace/sino_viewer/mainwindow.h",
+		"/home/nikos/Desktop/ddd",
+		"/home/nikos/Desktop/phi_def",
+		"/home/nikos/Desktop/Text File",
+		"/home/nikos/Desktop/Daniel",
+		"/home/nikos/Workspace/src/STIR/src/include/stir/ProjData.h",
+		"/home/nikos/Workspace/src/STIR/src/include/stir/IO/InterfileHeader.h",
+		"/home/nikos/Desktop/s_blk",
+		"/home/nikos/Desktop/norm_output",
+		"/home/nikos/Workspace/src/STIR/src/IO/InterfileHeader.cxx",
+		"/home/nikos/Workspace/sino_viewer/resources.qrc",
+		"/home/nikos/Workspace/sino_viewer/sinoviewer.h",
+		"/home/nikos/Workspace/Data/NEMA_analysis_masks/IQ_phantom/generate_image_B_S_1.par",
+		"/home/nikos/Downloads/LungXCAT2_Noise_MIC/masks/ROI_lession.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_200/slurm-506704.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_100/slurm-506700.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50/slurm-506699.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_50_13/slurm-506322.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_50/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_100/output_lmf_15.hv",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/TOF_200_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50_13/slurm-506808.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_100_13/slurm-506807.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_50_13/slurm-506806.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/TOF_50_13/slurm-506796.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/TOF_100_13/slurm-506795.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50_13/slurm-506792.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_100_13/slurm-506791.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_100_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_100_13/slurm-506278.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_100_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_100_13/slurm-506811.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_50_13/slurm-506810.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/TOF_50_13/slurm-506813.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_50_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_4/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_4/TOF_50/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_200_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_50/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_200_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_100_13/slurm-506341.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/PROJ_TOF_50/my_hist_f1g1d0b0seg0_1_by_sino.hv",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50_13/slurm-506701.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_4/TOF_50_13/slurm-506288.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_4/TOF_50/slurm-506287.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_100/slurm-506277.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_200_13/slurm-506280.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_2/TOF_200/slurm-506279.out",
+		"/home/nikos/Workspace/Simulations/test_NEMA/mac/NEMA_IQ_Phantom/NEMA_2001_IQ_phantom.mac",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_200_13/slurm-506263.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_200/slurm-506262.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_100_13/slurm-506703.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_200_13/slurm-506702.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/PROJ_TOF_200/OSMAPOSL.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_1/TOF_200/OSMAPOSL_lmf.par",
+		"/home/nikos/Sedecal_model.m",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_50/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_50_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_100/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_100/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_100_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_200/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_200/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_200_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_3/TOF_200_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_4/TOF_50/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_4/TOF_50_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_4/TOF_100/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_5/TOF_100_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_5/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_5/TOF_200/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_50/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_50/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_50_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_100/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_100/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_100_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_200/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_200/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_200_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_6/TOF_200_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_50/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_50/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_50_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_100/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_100/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_100_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_200/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_200/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_200_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_7/TOF_200_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_100_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_50/slurm-506004.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_50/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_50/slurm-506314.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_50_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_50_13/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_100/root_header.hroot",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/HTOF/NO_THRES_8/TOF_100/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50/slurm-506248.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_50_13/slurm-506249.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_100_13/slurm-506255.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_200_13/slurm-506253.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/ATOF/TOF_200/slurm-506254.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_50/slurm-506258.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/UTOF/TOF_100/slurm-506260.out",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_100/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_100_13/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_200/OSMAPOSL_lmf.par",
+		"/run/user/1000/gvfs/sftp:host=viper.hull.ac.uk,user=535822/home/535822/TOF_res/NO_THRES/TOF_200/root_header.hroot"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"data_info_ptr",
+			"ProjDataInfo",
+			"radius-x (in mm)",
+			"adius-x (in mm)",
+			"radius-x (in mm)",
+			",",
+			" ",
+			",",
+			"5,11,17,23,29,35,41,47,51,47,41,35,29,23,17,11,5",
+			",",
+			"*",
+			" ",
+			"radius-x (in mm)",
+			"radius-x (in mm) :="
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "CMakeLists.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

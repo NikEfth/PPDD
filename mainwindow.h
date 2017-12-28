@@ -47,30 +47,69 @@ public:
     ~MainWindow();
 
 signals:
-    void projdata_loaded(std::shared_ptr<stir::ProjData> new_projdata);
-    void projdata_info_loaded(std::shared_ptr<stir::ProjDataInfo> new_projdata_info);
+    //!
+    //! \brief projdata_loaded
+    //! Signals that a new ProjData has been succeessfully loaded.
+    //! In addition, sends a pointer of that data set to the connected slots.
+    //! \param new_projdata
+    //!
+    void projdata_loaded(std::shared_ptr<ProjData> new_projdata);
+
+    //!
+    //! \brief projdata_info_loaded
+    //! Signals a new ProjDataInfo and sends a pointer of it.
+    //! \param new_projdata_info
+    //!
+    void projdata_info_loaded(std::shared_ptr<ProjDataInfo> new_projdata_info);
 
 private slots:
     void on_actionOpen_sinogram_triggered();
 
+    //!
+    //! \brief on_actionactionRefresh_triggered
+    //! Currently this function only refreshes the Info side bar.
+    //!
     void on_actionactionRefresh_triggered();
 
+    //!
+    //! \brief on_cmb_num_viewports_currentIndexChanged
+    //! \param index
+    //! Actions to be taken when the number of viewport is changed.
     void on_cmb_num_viewports_currentIndexChanged(int index);
 
+    //!
+    //! \brief on_cmb_colormap_currentIndexChanged
+    //! \param index
+    //!
     void on_cmb_colormap_currentIndexChanged(int index);
+
+    //!
+    //! \brief on_actionAbout_triggered
+    //!
+    void on_actionAbout_triggered();
 
 private:
     Ui::MainWindow *ui;
 
-    void initialise_menus();
-
+    //!
+    //! \brief init_path
+    //! Hold the previous path of the data.
     QString init_path;
 
+    //!
+    //! \brief my_screen
+    //! This member holds the cetran widget.
     std::unique_ptr<Screen_manager> my_screen;
+
+    //!
+    //! \brief toolBar
+    //!
     QToolBar *toolBar;
 
-    QThread *worker;
-
+    //!
+    //! \brief input_proj_data_sptr
+    //! As, in the future, the ProjData might be used by different classes,
+    //! the a pointer is shared in here.
     std::shared_ptr<ProjData> input_proj_data_sptr;
 
 

@@ -25,44 +25,33 @@
 
 #include <qwt_color_map.h>
 
-display_screen::display_screen(int label, float x_size, float y_size, int x_length, int y_length, QWidget *parent) :
+display_screen::display_screen(int _label,
+                               int x_length,
+                               int y_length,
+                               QWidget *parent) :
     QwtPlot(parent)
   //ui(new Ui::display_screen)
 {
-    //    ui->setupUi(this);
-    num_of_data = 1;
-    init_id = 1;
-    flag_sinos = true;
-
-    my_label = label;
-
-    int size = x_length*y_length;
-    row_size = y_length;
-    my_data.resize(size);
-
-    setAutoReplot(true);
-
-    setTitle(QString::number(label));
+    my_label = _label;
 
     d_spectrogram = new QwtPlotSpectrogram();
     d_spectrogram->setRenderThreadCount(0);
-    d_spectrogram->setCachePolicy( QwtPlotRasterItem::PaintCache );
+    d_spectrogram->setCachePolicy(QwtPlotRasterItem::CachePolicy::NoCache);
 
     my_cm = new ColorMap();
     d_spectrogram->setColorMap(my_cm);
 
-
+    setAutoReplot(true);
     plotLayout()->setAlignCanvasToScales( true );
-    setAxisScale( QwtPlot::xBottom, static_cast<double>(-(y_length)/2), static_cast<double>((y_length)/2) );
-    setAxisScale( QwtPlot::yLeft, 0.0, static_cast<double>(x_length) );
+
+    d_rescaler = new QwtPlotRescaler(this->canvas(), QwtPlot::xBottom, QwtPlotRescaler::Fixed);
+    this->setCanvasBackground(QBrush(my_cm->get_background()));
+    d_rescaler->setExpandingDirection(QwtPlot::yLeft, QwtPlotRescaler::ExpandBoth);
 
     p_raster = new QwtMatrixRasterData();
-    p_raster->setInterval( Qt::XAxis, QwtInterval( static_cast<double>(-(y_length)/2),static_cast<double>((y_length)/2) ) );
-    p_raster->setInterval( Qt::YAxis, QwtInterval(0, static_cast<double>(x_length) ) );
-
     d_spectrogram->setData( p_raster);
     d_spectrogram->attach(this);
-    //    this->resize(x_size*x_length, y_size*y_length);
+     //    this->resize(x_size*x_length, y_size*y_length);
 
     this->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this,SIGNAL(customContextMenuRequested(const QPoint &  )),this,SLOT(popUpMenu(const QPoint &)));
@@ -73,48 +62,50 @@ display_screen::~display_screen()
     //    delete ui;
 }
 
+void
+display_screen::set_sizes(int _h, int _v, float _h_spacing, float _v_spacing)
+{
+    row_size = _h;
+    col_size = _v;
+    size = row_size*col_size;
+    my_data.resize(size);
+
+//    setAxisScale( QwtPlot::xBottom, static_cast<double>(-(row_size)/2), static_cast<double>((row_size)/2) );
+//    setAxisScale( QwtPlot::yLeft, 0.0, static_cast<double>(col_size) );
+
+    p_raster->setInterval( Qt::XAxis, QwtInterval( static_cast<double>(-(row_size)/2),static_cast<double>((row_size)/2) ) );
+    p_raster->setInterval( Qt::YAxis, QwtInterval(0, static_cast<double>(col_size) ) );
+}
+
 
 QVector<double>::iterator
-display_screen::get_data_ptr()
+display_screen::get_data_begin()
 {
     return  my_data.begin();
 }
 
-
-void display_screen::set_max_value(double new_max)
+QVector<double>::iterator
+display_screen::get_data_end()
 {
-    max_value = new_max;
+    return  my_data.end();
+}
+
+int
+display_screen::get_data_size()
+{
+    return  my_data.size();
 }
 
 void
 display_screen::replot_me()
 {
+    p_raster->discardRaster();
+
     p_raster->setValueMatrix(my_data, row_size);
     p_raster->setInterval( Qt::ZAxis, QwtInterval( 0.0, max_value ) );
+    d_spectrogram->setData(p_raster);
 
-    QwtPlot::replot();
-    repaint();
-}
-
-void display_screen::set_color_map(int index)
-{
-    switch (index) {
-    case 0:
-        my_cm->set_BW();
-        break;
-    case 1:
-        my_cm->set_WB();
-        break;
-    case 2:
-        my_cm->set_JET();
-        break;
-    case 3:
-        my_cm->set_qwt();
-        break;
-    default:
-        break;
-    }
-    d_spectrogram->setColorMap(my_cm);
+    replot();
 }
 
 void display_screen::popUpMenu(const QPoint &pos)
@@ -125,6 +116,11 @@ void display_screen::popUpMenu(const QPoint &pos)
 
     QAction * act_saveAsImage = myMenu.addAction("Save as image");
     act_saveAsImage->setIcon(QIcon::fromTheme("image-x-generic.png"));
+
+    myMenu.addSeparator();
+
+    QAction * act_popOut = myMenu.addAction("Pop Out");
+    act_popOut->setIcon(QIcon::fromTheme("view-fullscreen.png"));
 
     QObject::connect(act_saveAs, &QAction::triggered, [=]()
     {emit save_this_array(my_label);}

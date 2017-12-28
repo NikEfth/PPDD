@@ -20,6 +20,10 @@
 
 #include <QLayout>
 #include <QFileDialog>
+#include <QPushButton>
+#include <QScrollBar>
+
+#include "stir/is_null_ptr.h"
 
 Screen_manager::Screen_manager(std::shared_ptr<stir::ProjData> _input_proj_data_sptr, int _num_viewports, int cm_index,
                                int _view_by, QWidget *parent) :
@@ -31,8 +35,9 @@ Screen_manager::Screen_manager(std::shared_ptr<stir::ProjData> _input_proj_data_
     view_by = _view_by;
 
     current_id = 0;
+    cur_segment_num = 0;
     num_viewports = _num_viewports;
-    segments_initialised = false;
+    hasSegments = false;
 
     // Get sizes
     initialise_controls();
@@ -40,7 +45,7 @@ Screen_manager::Screen_manager(std::shared_ptr<stir::ProjData> _input_proj_data_
     // Create the final widget view.
     set_up_plot_area(num_viewports);
 
-    on_comboBox_currentIndexChanged(QString("0"));
+    on_selectSeg_cmb_currentIndexChanged(QString("0"));
     changeCM(cm_index);
 }
 
@@ -82,18 +87,15 @@ void Screen_manager::set_up_plot_area(int _viewsports)
         break;
     }
 
-
-    for(int i = 0; i < num_viewports; i++)
+    for(int viewport = 0; viewport < num_viewports; viewport++)
     {
-        std::shared_ptr<display_screen> tmp(new display_screen(i,
-                                                               bin_size,
-                                                               bin_size,
-                                                               num_views,
-                                                               num_tangs, this));
+        std::shared_ptr<display_screen> tmp(new display_screen(viewport,
+                                                               vertical_size,
+                                                               horizontal_size, this));
 
         my_displays.append(tmp);
-        int row = static_cast<int>((i/(col_size)));
-        int col = static_cast<int>((i%(col_size)));
+        int row = static_cast<int>((viewport/(col_size)));
+        int col = static_cast<int>((viewport%(col_size)));
 
         ui->gridLayout_5->addWidget(my_displays.last().get(), row , col);
 
@@ -101,58 +103,110 @@ void Screen_manager::set_up_plot_area(int _viewsports)
                          this, &Screen_manager::save_as_array);
     }
     ui->displ_frame->updateGeometry();
+
+    if(!is_null_ptr(cur_segment))
+    {
+        set_limits();
+        draw_plot_area();
+    }
 }
 
 void Screen_manager::draw_plot_area()
 {
+    Bin central_bin(cur_segment_num,0,0,0, 0.f);
+    const float m_spacing = cur_segment->get_proj_data_info_ptr()->get_sampling_in_m(central_bin);
+    const float s_spacing = cur_segment->get_proj_data_info_ptr()->get_sampling_in_s(central_bin);
+
     for(int i = 0; i < num_viewports; i++)
     {
-        QVector<double>::iterator iter = my_displays.at(i)->get_data_ptr();
-
-        Sinogram<float> this_sinogram = this_segment->get_sinogram(i);
-
-        stir::Sinogram<float>::const_full_iterator is = this_sinogram.begin_all_const();
-        stir::Sinogram<float>::const_full_iterator ie = this_sinogram.end_all_const();
-
         double max_value = 0.0;
-        for ( ;is != ie; ++is, ++iter)
+        my_displays[i]->set_sizes(horizontal_size, vertical_size, m_spacing, s_spacing);
+        QVector<double>::iterator iter = my_displays.at(i)->get_data_begin();
+
+        int current_pos = (current_id*num_viewports)+i;
+
+        if (current_pos < num_poss)
         {
-            *iter = static_cast<double>(*is);
-            if (*iter > max_value)
-                max_value = *iter;
+            if(view_by == 1)
+            {
+                Sinogram<float> cur_sinogram = cur_segment->get_sinogram(current_pos);
+
+
+                stir::Sinogram<float>::const_full_iterator is = cur_sinogram.begin_all_const();
+                stir::Sinogram<float>::const_full_iterator ie = cur_sinogram.end_all_const();
+
+                my_displays[i]->setTitle(QString::number(current_pos));
+
+                for ( ;is != ie; ++is, ++iter)
+                {
+                    *iter = static_cast<double>(*is);
+                    if (*iter > max_value)
+                        max_value = *iter;
+                }
+            }
+            else if (view_by == 2)
+            {
+                Viewgram<float> cur_sinogram = cur_segment->get_viewgram(current_pos);
+
+                stir::Sinogram<float>::const_full_iterator is = cur_sinogram.begin_all_const();
+                stir::Sinogram<float>::const_full_iterator ie = cur_sinogram.end_all_const();
+
+                my_displays[i]->setTitle(QString::number(current_pos));
+
+                for ( ;is != ie; ++is, ++iter)
+                {
+                    *iter = static_cast<double>(*is);
+                    if (*iter > max_value)
+                        max_value = *iter;
+                }
+            }
+        }
+        else
+        {
+            for (int ii = 0; ii < my_displays.at(i)->get_data_size(); ii++, ++iter)
+            {  *iter = 0.0; }
+
         }
         my_displays[i]->set_max_value(max_value);
+        my_displays[i]->set_color_map(cur_ColMap);
         my_displays[i]->replot_me();
+
     }
 }
 
 void Screen_manager::initialise_controls()
 {
-    segments_initialised = false;
+    hasSegments = false;
     min_seg = projdata_sptr->get_min_segment_num();
     max_seg = projdata_sptr->get_max_segment_num();
 
-    int zero_indx = 0;
-
     for (int i = min_seg; i <= max_seg; ++i)
     {
-        ui->comboBox->addItem(QString::number(i));
+        ui->selectSeg_cmb->addItem(QString::number(i));
     }
 
-    segments_initialised = true;
-    int index = ui->comboBox->findText("0"); //use default exact match
+    hasSegments = true;
+    int index = ui->selectSeg_cmb->findText("0"); //use default exact match
     if(index >= 0)
-        ui->comboBox->setCurrentIndex(index);
+        ui->selectSeg_cmb->setCurrentIndex(index);
 
     bin_size = projdata_sptr->get_proj_data_info_ptr()->get_scanner_ptr()->get_default_bin_size();
-    num_views = projdata_sptr->get_num_views();
-    num_tangs = projdata_sptr->get_num_tangential_poss();
+    if (view_by == 1)
+    {
+        vertical_size = projdata_sptr->get_num_views();
+        horizontal_size = projdata_sptr->get_num_tangential_poss();
+    }
+    else if (view_by == 2)
+    {
+        vertical_size  = projdata_sptr->get_num_axial_poss(cur_segment_num);
+        horizontal_size  = projdata_sptr->get_num_tangential_poss();
+    }
 
 }
 
-void Screen_manager::on_comboBox_currentIndexChanged(QString index)
+void Screen_manager::on_selectSeg_cmb_currentIndexChanged(QString index)
 {
-    if(segments_initialised && my_displays.size()>0)
+    if(hasSegments && my_displays.size()>0)
     {
         bool ok;
         int num_seg = index.toInt(&ok, 10);
@@ -160,10 +214,18 @@ void Screen_manager::on_comboBox_currentIndexChanged(QString index)
             return;
 
         reset_current_id();
-        set_limits(num_seg);
+        if (view_by == 1)
+            cur_segment =  std::make_shared<SegmentBySinogram<float> > (projdata_sptr->get_segment_by_sinogram(num_seg));
+        else if (view_by == 2)
+            cur_segment =  std::make_shared<SegmentByView<float> > (projdata_sptr->get_segment_by_view(num_seg));
 
-        this_segment =  std::make_shared<SegmentBySinogram<float> > (projdata_sptr->get_segment_by_sinogram(num_seg));
-        this_segment_num = num_seg;
+        cur_segment_num = num_seg;
+
+
+        num_poss = (view_by == 1) ? projdata_sptr->get_num_axial_poss(cur_segment_num) :
+                                    projdata_sptr->get_num_views();
+
+        set_limits();
 
         draw_plot_area();
     }
@@ -171,38 +233,33 @@ void Screen_manager::on_comboBox_currentIndexChanged(QString index)
 
 void Screen_manager::set_seg_index(int num_seg)
 {
-    int index = ui->comboBox->findText(QString::number(num_seg));
+    int index = ui->selectSeg_cmb->findText(QString::number(num_seg));
 
     if(index==-1)
         return;
 
-    ui->comboBox->setCurrentIndex(index);
-    on_comboBox_currentIndexChanged(QString::number(num_seg));
+    ui->selectSeg_cmb->setCurrentIndex(index);
+    on_selectSeg_cmb_currentIndexChanged(QString::number(num_seg));
 }
 
 
 void Screen_manager::reset_current_id()
 {
-    current_id = 0;
-    ui->go_left->setEnabled(false);
+    //    current_id = 0;
+    //    ui->go_left->setEnabled(false);
 }
 
-void Screen_manager::set_limits(const int pos)
+void Screen_manager::set_limits()
 {
-    if (view_by == 1) // By Sinogram
-    {
-        int poss = projdata_sptr->get_num_axial_poss(pos);
-        ui->posss->setText(QString::number(current_id) +" / " +QString::number(poss));
-    }
-    else // By Viewgram
-    {
-        int poss = projdata_sptr->get_num_views();
-        ui->posss->setText(QString::number(current_id) +" / " +QString::number(poss));
-    }
+
+    ui->posss->setText(QString::number(current_id) +" / " +QString::number(static_cast<int>(static_cast<float>(num_poss)/num_viewports))+ " pages");
+    int max = static_cast<int>(static_cast<float>(num_poss)/num_viewports);
+    ui->posSelect_scrbr->setMaximum(max);
 }
 
 void Screen_manager::changeCM(int index)
 {
+    cur_ColMap = index;
     for(int i = 0; i < num_viewports; i++)
     {
         my_displays[i]->set_color_map(index);
@@ -220,14 +277,15 @@ void Screen_manager::save_as_array(int this_label)
     if (fileName.size() == 0 )
         return;
 
-    Bin central_bin(this_segment_num,0,0,0, 0.f);
+    Bin central_bin(cur_segment_num,0,0,0, 0.f);
 
-    const float m_spacing = this_segment->get_proj_data_info_ptr()->get_sampling_in_m(central_bin);
-    const float s_spacing = this_segment->get_proj_data_info_ptr()->get_sampling_in_s(central_bin);
-    const float m = this_segment->get_proj_data_info_ptr()->get_m(central_bin);
-    const float s = this_segment->get_proj_data_info_ptr()->get_s(central_bin);
+    const float m_spacing = cur_segment->get_proj_data_info_ptr()->get_sampling_in_m(central_bin);
+    const float s_spacing = cur_segment->get_proj_data_info_ptr()->get_sampling_in_s(central_bin);
+    const float m = cur_segment->get_proj_data_info_ptr()->get_m(central_bin);
+    const float s = cur_segment->get_proj_data_info_ptr()->get_s(central_bin);
 
-    Sinogram<float> sinogram = this_segment->get_sinogram(this_label);
+    //Viewgram
+    Sinogram<float> sinogram = cur_segment->get_sinogram(this_label);
     IndexRange3D dn(0, 0, sinogram.get_min_index(), sinogram.get_max_index(), sinogram[1].get_min_index(), sinogram[1].get_max_index());
 
     const Array<2, float> * p_sinogram =
@@ -243,4 +301,15 @@ void Screen_manager::save_as_array(int this_label)
                           dummy,
                           CartesianCoordinate3D<float>(m_spacing, 1.F, s_spacing),
                           CartesianCoordinate3D<float>(m, 0.F, s));
+}
+
+void Screen_manager::on_posSelect_scrbr_valueChanged(int value)
+{
+    current_id = value;
+    ui->posss->setText(QString::number(current_id) +" / " +QString::number(static_cast<int>(static_cast<float>(num_poss)/num_viewports)) + " pages");
+}
+
+void Screen_manager::on_posSelect_scrbr_sliderReleased()
+{
+    draw_plot_area();
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>739</width>
-    <height>580</height>
+    <height>682</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -324,6 +324,9 @@ border-top: 1px solid black;
              </item>
              <item row="0" column="1">
               <widget class="QComboBox" name="cmb_num_viewports">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="sizeAdjustPolicy">
                 <enum>QComboBox::AdjustToContents</enum>
                </property>
@@ -351,6 +354,9 @@ border-top: 1px solid black;
              </item>
              <item row="1" column="1">
               <widget class="QComboBox" name="cmb_colormap">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <item>
                 <property name="text">
                  <string>Black-White</string>
@@ -359,6 +365,11 @@ border-top: 1px solid black;
                <item>
                 <property name="text">
                  <string>White-Black</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Viridis</string>
                 </property>
                </item>
                <item>
@@ -425,12 +436,12 @@ border-top: 1px solid black;
      <x>0</x>
      <y>0</y>
      <width>739</width>
-     <height>25</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Fi&amp;le</string>
     </property>
     <addaction name="separator"/>
     <addaction name="actionOpen_sinogram"/>
@@ -462,6 +473,7 @@ border-top: 1px solid black;
    <addaction name="actionOpen_sinogram"/>
    <addaction name="separator"/>
    <addaction name="actionactionRefresh"/>
+   <addaction name="actionSwap_View_mode"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpen_sinogram">
@@ -470,7 +482,7 @@ border-top: 1px solid black;
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Open sinogram</string>
+    <string>&amp;Open sinogram</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -479,7 +491,7 @@ border-top: 1px solid black;
      <normaloff>:/icons/resources/icons8-microbeam-radiation-therapy-30.png</normaloff>:/icons/resources/icons8-microbeam-radiation-therapy-30.png</iconset>
    </property>
    <property name="text">
-    <string>About</string>
+    <string>&amp;About</string>
    </property>
   </action>
   <action name="actionExit">
@@ -488,7 +500,7 @@ border-top: 1px solid black;
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
    </property>
   </action>
   <action name="actionactionRefresh">
@@ -502,7 +514,15 @@ border-top: 1px solid black;
   </action>
   <action name="actionContrast">
    <property name="text">
-    <string>Contrast</string>
+    <string>&amp;Contrast</string>
+   </property>
+  </action>
+  <action name="actionSwap_View_mode">
+   <property name="icon">
+    <iconset theme="exchange-positions"/>
+   </property>
+   <property name="text">
+    <string>Swap View mode</string>
    </property>
   </action>
  </widget>

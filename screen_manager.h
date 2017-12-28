@@ -64,44 +64,93 @@ public slots:
     void save_as_array(int this_label);
 
 private slots:
-    void on_comboBox_currentIndexChanged(QString index);
+    void on_selectSeg_cmb_currentIndexChanged(QString index);
 
     void reset_current_id();
+
+    void on_posSelect_scrbr_valueChanged(int value);
+
+    void on_posSelect_scrbr_sliderReleased();
 
 private:
     Ui::Screen_manager *ui;
 
+    //!
+    //! \brief num_viewports
+    //! Number of active views per page.
     int num_viewports;
 
     void initialise_controls();
 
     void draw_plot_area();
 
-    void set_limits(const int pos);
+    void set_limits();
 
     std::shared_ptr<stir::ProjData> projdata_sptr;
 
     QVector< std::shared_ptr<display_screen> > my_displays;
 
+    //!
+    //! \brief view_by
+    //! Viewmode: 1: Sinogram, 2: Viewgram
     int view_by;
 
+    //!
+    //! \brief current_id
+    //! The id of the current position.
+    //! \details
+    //! On Sinograms the id corresponds to axial poss and on
+    //! Viewgrams on views.
     int current_id;
 
+    //!
+    //! \brief min_seg
+    //! Min segment of the ProjData
     int min_seg;
 
+    //!
+    //! \brief max_seg
+    //! Max segment of the ProjData
     int max_seg;
 
     float bin_size;
 
-    int num_views;
+    //!
+    //! \brief vertical_size
+    //! Vertical axis of the prints
+    //! \details
+    //! On Sinogram mode that is the views on Viewgrams tha tangestial
+    int vertical_size;
 
-    int num_tangs;
+    //!
+    //! \brief horizontal_size
+    //! Horizontal axis of the prints
+    //! \details
+    //! On Sinogram mode that is the tangestial positions
+    //!  on Viewgrams are axial positions.
+    int horizontal_size;
 
-    bool segments_initialised;
+    //!
+    //! \brief num_poss
+    //! Total number of positions to scroll.
+    int num_poss;
 
-    shared_ptr<SegmentBySinogram<float> > this_segment;
+    //!
+    //! \brief hasSegments
+    //! A flag for the initialised controls
+    bool hasSegments;
 
-    int this_segment_num;
+    //!
+    //! \brief cur_segment
+    //! The current segment under display
+    shared_ptr<Segment<float> > cur_segment;
+
+    //!
+    //! \brief cur_segment_num
+    //! The current segment number under display.
+    int cur_segment_num;
+
+    int cur_ColMap;
 
 };
 

@@ -21,13 +21,11 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "aboutdialog.h"
 
 #include "viewmode.h"
 
 #include "stir/is_null_ptr.h"
-
-#include <fstream>
-#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -45,11 +43,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::initialise_menus()
-{
-
-}
 
 void MainWindow::on_actionOpen_sinogram_triggered()
 {
@@ -72,21 +65,31 @@ void MainWindow::on_actionOpen_sinogram_triggered()
     input_proj_data_sptr = ProjData::read_from_file(fileName.toStdString());
 
     if (is_null_ptr(input_proj_data_sptr))
-        QMessageBox::critical(this, tr("My Application"),
+        QMessageBox::critical(this, tr("Error reading ProjData"),
                                        tr("Unable to load Projection Data."),
                                        QMessageBox::Ok);
 
+    // Refresh the info
     on_actionactionRefresh_triggered();
 
+    // Change window title to current fileName
     setWindowTitle(QFileInfo(fileName).fileName());
 
-    QString ff = ui->cmb_num_viewports->currentText();
-    int num = ff.toInt();
+    // Get the current number of viewports, so we don't break
+    // everytime a new file is loaded. Is not safe to go just by index,
+    // as that might change in the future.
+    QString viewPorts_txt = ui->cmb_num_viewports->currentText();
+    int viewPorts_num = viewPorts_txt.toInt();
 
+    // Get the current colormap. - Indexbased
     int cm_index = ui->cmb_colormap->currentIndex();
 
-    my_screen.reset(new Screen_manager(input_proj_data_sptr, num, cm_index, view_mode, this));
+    // New instance of the central widget.
+    my_screen.reset(new Screen_manager(input_proj_data_sptr, viewPorts_num,
+                                       cm_index, view_mode, this));
     ui->mainFrame_layout->addWidget(my_screen.get());
+    ui->cmb_colormap->setEnabled(true);
+    ui->cmb_num_viewports->setEnabled(true);
 }
 
 void MainWindow::on_actionactionRefresh_triggered()
@@ -103,14 +106,19 @@ void MainWindow::on_cmb_num_viewports_currentIndexChanged(int index)
     if(is_null_ptr(my_screen))
         return;
 
-    QString ff = ui->cmb_num_viewports->currentText();
-    int num = ff.toInt();
+    QString viewPorts_txt = ui->cmb_num_viewports->currentText();
+    int viewPorts_num = viewPorts_txt.toInt();
 
-    my_screen->set_up_plot_area(num);
-    my_screen->set_seg_index(0);
+    my_screen->set_up_plot_area(viewPorts_num);
 }
 
 void MainWindow::on_cmb_colormap_currentIndexChanged(int index)
 {
     my_screen->changeCM(index);
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    AboutDialog* about = new AboutDialog(this);
+    about->exec();
 }
