@@ -1,8 +1,7 @@
-# Sino_viewer (v0.1)
-A sinogram viewer for interfiles. 
+# Sino_viewer (v0.5)
+A sinogram viewer for Projection Data. 
 
-This is a simple (so far) sinogram viewer, based on QT5 supporting interfiles. The [STIR toolkit](https://github.com/UCL/STIR) 
-is the backend for the projection data and [QWT](http://qwt.sourceforge.net/) is used for the plotting. 
+This is a simple (so far) sinogram viewer, based on QT5 supporting projection data from Positron Emission Tomography (PET) scanners. The [STIR toolkit](https://github.com/UCL/STIR) is the backend for reading the projection data and [QWT](http://qwt.sourceforge.net/) is used for the plotting. 
 
 ![screenshot from 2017-12-22 19-04-00](https://user-images.githubusercontent.com/8995070/34312027-062d41b6-e759-11e7-909a-fddcad1e96c6.png)
 
@@ -28,19 +27,17 @@ Replace the STIR path from the current to the one on your system.
 6. `make all`
 7. (optionally) `make install`
 
-
-
-### Other systems
+### Other OP systems
 No idea, really! 
 
 ### How to use
 #### Load sinogram
-1. Use the `File :: Open sinogram` option and select a Interfile header file (.hs). *As STIR framework expands in the future, any supported file types (that is stored as ProjData) will be, probably automatically, supported*.
-*No questions will be asked, all data will come from the header file.*
+1. Use the `File :: Open Projection Data` option and select a Interfile header file (.hs). *As STIR framework expands in the future, any supported file types (that is stored as ProjData) will be, probably automatically, supported*.
 2. A pop-up window will appear to allow to select between sinogram and viewgram view mode. Once selected this cannot change. The control widgets will be updated to the appropriate sizes.
 3. Different number of viewports are supported. 
 4. Colormaps can be selected. 
 ![screenshot from 2017-12-22 19-03-31](https://user-images.githubusercontent.com/8995070/34312028-064be008-e759-11e7-82bf-0e7eca3188f5.png)
+5. A slider bar is used for scrolling between the positions.
 
 #### Save a sinogram
 Any sinogram can be saved either as image file (PNG) or as interfile (.hv & .v).
