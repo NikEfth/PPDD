@@ -22,6 +22,7 @@
 #include <QWidget>
 
 #include "display_screen.h"
+#include "configuration.h"
 
 #include "stir/Sinogram.h"
 #include "stir/Viewgram.h"
@@ -39,6 +40,7 @@
 #include "stir/IO/interfile.h"
 #include "stir/Array.h"
 #include "stir/IndexRange3D.h"
+#include "stir/is_null_ptr.h"
 
 using namespace stir;
 
@@ -51,17 +53,32 @@ class Screen_manager : public QWidget
     Q_OBJECT
 
 public:
-    explicit Screen_manager(std::shared_ptr<stir::ProjData> _input_proj_data_sptr, int _num_viewports,
-                            int cm_index =1, int _view_by=1, QWidget *parent = 0);
+    explicit Screen_manager(Configuration* curConfig, QWidget *parent);
+    //std::shared_ptr<stir::ProjData> _input_proj_data_sptr, int _num_viewports,
+    //int cm_index =1, int _view_by=1, QWidget *parent = 0
     ~Screen_manager();
 
+
+    bool loadFile(const QString fileName);
+
     void set_seg_index(int num_seg);
+
     void changeCM(int index);
 
+    QString getMyFile() const;
+
+    QString getMyFileName() const;
+
+signals:
+    void closed(const QString);
+
 public slots:
-    void set_up_plot_area(int _viewsports);
+
+    void set_up_plot_area();
 
     void save_as_array(int this_label);
+
+    bool initialise_plot_area(int _viewsports);
 
 private slots:
     void on_selectSeg_cmb_currentIndexChanged(QString index);
@@ -71,6 +88,9 @@ private slots:
     void on_posSelect_scrbr_valueChanged(int value);
 
     void on_posSelect_scrbr_sliderReleased();
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     Ui::Screen_manager *ui;
@@ -86,7 +106,9 @@ private:
 
     void set_limits();
 
-    std::shared_ptr<stir::ProjData> projdata_sptr;
+    QString myFileName;
+
+    std::shared_ptr<stir::ProjData> projData_sptr;
 
     QVector< std::shared_ptr<display_screen> > my_displays;
 

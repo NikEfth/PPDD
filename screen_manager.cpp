@@ -17,36 +17,29 @@
 */
 #include "screen_manager.h"
 #include "ui_screen_manager.h"
+#include "viewmode.h"
 
 #include <QLayout>
 #include <QFileDialog>
 #include <QPushButton>
 #include <QScrollBar>
+#include <QMessageBox>
+
 
 #include "stir/is_null_ptr.h"
 
-Screen_manager::Screen_manager(std::shared_ptr<stir::ProjData> _input_proj_data_sptr, int _num_viewports, int cm_index,
-                               int _view_by, QWidget *parent) :
+Screen_manager::Screen_manager(Configuration *curConfig, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Screen_manager)
 {
     ui->setupUi(this);
-    projdata_sptr = _input_proj_data_sptr;
-    view_by = _view_by;
 
     current_id = 0;
     cur_segment_num = 0;
-    num_viewports = _num_viewports;
     hasSegments = false;
 
-    // Get sizes
-    initialise_controls();
-
-    // Create the final widget view.
-    set_up_plot_area(num_viewports);
-
-    on_selectSeg_cmb_currentIndexChanged(QString("0"));
-    changeCM(cm_index);
+    initialise_plot_area(curConfig->numViewPorts);
+    cur_ColMap = curConfig->curColorMap_index;
 }
 
 Screen_manager::~Screen_manager()
@@ -54,11 +47,56 @@ Screen_manager::~Screen_manager()
     delete ui;
 }
 
-void Screen_manager::set_up_plot_area(int _viewsports)
+void Screen_manager::closeEvent(QCloseEvent *event)
+{
+    emit closed(getMyFile());
+    this->destroy();
+}
+
+bool Screen_manager::loadFile(const QString fileName)
+{
+    projData_sptr = ProjData::read_from_file(fileName.toStdString());
+
+    if (is_null_ptr(projData_sptr))
+        QMessageBox::critical(this, tr("Error reading ProjData"),
+                              tr("Unable to load Projection Data."),
+                              QMessageBox::Ok);
+
+    ViewMode *view_msg = new ViewMode(this);
+    view_msg->show();
+    view_by = view_msg->exec();
+
+    if (view_by == 0)
+        return false;
+
+    //    // Get sizes
+    initialise_controls();
+    set_up_plot_area();
+
+    on_selectSeg_cmb_currentIndexChanged(QString("0"));
+
+    myFileName = fileName;
+
+    setWindowTitle(getMyFileName());
+    return true;
+}
+
+QString Screen_manager::getMyFile() const
+{
+    return myFileName;
+}
+
+QString Screen_manager::getMyFileName() const
+{
+    QFileInfo fi(myFileName);
+    return fi.fileName();
+}
+
+bool Screen_manager::initialise_plot_area(int _viewsports)
 {
 
     if (_viewsports<=0)
-        return;
+        return false;
 
     if(!my_displays.isEmpty())
     {
@@ -69,7 +107,13 @@ void Screen_manager::set_up_plot_area(int _viewsports)
         my_displays.clear();
     }
 
-    num_viewports = _viewsports;
+    num_viewports = _viewsports;   
+
+    return true;
+}
+
+void Screen_manager::set_up_plot_area()
+{
     int col_size;
 
     switch (num_viewports) {
@@ -110,6 +154,7 @@ void Screen_manager::set_up_plot_area(int _viewsports)
         draw_plot_area();
     }
 }
+
 
 void Screen_manager::draw_plot_area()
 {
@@ -177,8 +222,8 @@ void Screen_manager::draw_plot_area()
 void Screen_manager::initialise_controls()
 {
     hasSegments = false;
-    min_seg = projdata_sptr->get_min_segment_num();
-    max_seg = projdata_sptr->get_max_segment_num();
+    min_seg = projData_sptr->get_min_segment_num();
+    max_seg = projData_sptr->get_max_segment_num();
 
     for (int i = min_seg; i <= max_seg; ++i)
     {
@@ -190,16 +235,16 @@ void Screen_manager::initialise_controls()
     if(index >= 0)
         ui->selectSeg_cmb->setCurrentIndex(index);
 
-    bin_size = projdata_sptr->get_proj_data_info_ptr()->get_scanner_ptr()->get_default_bin_size();
+    bin_size = projData_sptr->get_proj_data_info_ptr()->get_scanner_ptr()->get_default_bin_size();
     if (view_by == 1)
     {
-        vertical_size = projdata_sptr->get_num_views();
-        horizontal_size = projdata_sptr->get_num_tangential_poss();
+        vertical_size = projData_sptr->get_num_views();
+        horizontal_size = projData_sptr->get_num_tangential_poss();
     }
     else if (view_by == 2)
     {
-        vertical_size  = projdata_sptr->get_num_axial_poss(cur_segment_num);
-        horizontal_size  = projdata_sptr->get_num_tangential_poss();
+        vertical_size  = projData_sptr->get_num_axial_poss(cur_segment_num);
+        horizontal_size  = projData_sptr->get_num_tangential_poss();
     }
 
 }
@@ -215,15 +260,15 @@ void Screen_manager::on_selectSeg_cmb_currentIndexChanged(QString index)
 
         reset_current_id();
         if (view_by == 1)
-            cur_segment =  std::make_shared<SegmentBySinogram<float> > (projdata_sptr->get_segment_by_sinogram(num_seg));
+            cur_segment =  std::make_shared<SegmentBySinogram<float> > (projData_sptr->get_segment_by_sinogram(num_seg));
         else if (view_by == 2)
-            cur_segment =  std::make_shared<SegmentByView<float> > (projdata_sptr->get_segment_by_view(num_seg));
+            cur_segment =  std::make_shared<SegmentByView<float> > (projData_sptr->get_segment_by_view(num_seg));
 
         cur_segment_num = num_seg;
 
 
-        num_poss = (view_by == 1) ? projdata_sptr->get_num_axial_poss(cur_segment_num) :
-                                    projdata_sptr->get_num_views();
+        num_poss = (view_by == 1) ? projData_sptr->get_num_axial_poss(cur_segment_num) :
+                                    projData_sptr->get_num_views();
 
         set_limits();
 

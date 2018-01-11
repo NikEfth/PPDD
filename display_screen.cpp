@@ -38,7 +38,7 @@ display_screen::display_screen(int _label,
     d_spectrogram->setRenderThreadCount(0);
     d_spectrogram->setCachePolicy(QwtPlotRasterItem::CachePolicy::NoCache);
 
-    my_cm = new ColorMap();
+    my_cm = new Viewer::ColorMap();
     d_spectrogram->setColorMap(my_cm);
 
     setAutoReplot(true);

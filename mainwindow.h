@@ -19,24 +19,21 @@
 #define MAINWINDOW_H
 
 #include "screen_manager.h"
-
-#include "stir/IO/ExamData.h"
-#include "stir/ProjData.h"
-#include "stir/ProjDataFromStream.h"
-#include "stir/ProjDataInMemory.h"
-#include "stir/ProjDataInterfile.h"
-#include "stir/IO/interfile.h"
-#include "stir/IO/read_from_file.h"
-#include "stir/ProjDataInfoCylindrical.h"
-#include "stir/is_null_ptr.h"
+#include "configuration.h"
+#include "common.h"
 
 #include <QMainWindow>
 #include <QToolBar>
 #include <QToolButton>
+#include <QMdiArea>
+#include <QListWidget>
+
 
 namespace Ui {
 class MainWindow;
 }
+
+using namespace Viewer;
 
 class MainWindow : public QMainWindow
 {
@@ -46,30 +43,27 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-signals:
-    //!
-    //! \brief projdata_loaded
-    //! Signals that a new ProjData has been succeessfully loaded.
-    //! In addition, sends a pointer of that data set to the connected slots.
-    //! \param new_projdata
-    //!
-    void projdata_loaded(std::shared_ptr<ProjData> new_projdata);
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
-    //!
-    //! \brief projdata_info_loaded
-    //! Signals a new ProjDataInfo and sends a pointer of it.
-    //! \param new_projdata_info
-    //!
-    void projdata_info_loaded(std::shared_ptr<ProjDataInfo> new_projdata_info);
+
+signals:
+//    //!
+//    //! \brief projdata_loaded
+//    //! Signals that a new ProjData has been succeessfully loaded.
+//    //! In addition, sends a pointer of that data set to the connected slots.
+//    //! \param new_projdata
+//    //!
+//    void projdata_loaded(std::shared_ptr<ProjData> new_projdata);
+
+//    //!
+//    //! \brief projdata_info_loaded
+//    //! Signals a new ProjDataInfo and sends a pointer of it.
+//    //! \param new_projdata_info
+//    //!
+//    void projdata_info_loaded(std::shared_ptr<ProjDataInfo> new_projdata_info);
 
 private slots:
-    void on_actionOpen_sinogram_triggered();
-
-    //!
-    //! \brief on_actionactionRefresh_triggered
-    //! Currently this function only refreshes the Info side bar.
-    //!
-    void on_actionactionRefresh_triggered();
 
     //!
     //! \brief on_cmb_num_viewports_currentIndexChanged
@@ -88,9 +82,50 @@ private slots:
     //!
     void on_actionAbout_triggered();
 
+    void on_actionOpenFile_triggered();
+
+    void on_actionAbout_QT_triggered();
+
+    void updateRecentFileActions();
+
+    void openRecentFile();
+
+    void on_listOpenedFiles_itemDoubleClicked(QListWidgetItem *item);
+
+    void removeFromOpenedList(QString name);
+
 private:
+    enum { MaxRecentFiles = 5 };
+
     Ui::MainWindow *ui;
 
+    void readSettings();
+
+    void writeSettings();
+
+    void updateMenus();
+
+    void createMoreActions();
+
+    bool openFile(const QString fileName);
+
+    bool loadFile(const QString &fileName);
+
+    static bool hasRecentFiles();
+
+    void prependToRecentFiles(const QString &fileName);
+
+    void setRecentFilesVisible(bool visible);
+
+    Configuration *get_current_configuration();
+
+    Screen_manager *createMdiChild();
+
+    QMdiSubWindow *findMdiChild(const QString &fileName) const;
+
+    Screen_manager *activeMdiChild() const;
+
+    int numMdiChild() const;
     //!
     //! \brief init_path
     //! Hold the previous path of the data.
@@ -106,13 +141,15 @@ private:
     //!
     QToolBar *toolBar;
 
-    //!
-    //! \brief input_proj_data_sptr
-    //! As, in the future, the ProjData might be used by different classes,
-    //! the a pointer is shared in here.
-    std::shared_ptr<ProjData> input_proj_data_sptr;
+    QAction *recentFileActs[MaxRecentFiles];
+    QAction *recentFileSeparator;
+    QAction *recentFileSubMenuAct;
 
+    void appendToOpenedList(Screen_manager* child);
 
+    int checkIfRelativeItemAlreadyInList(QListWidget* this_list, QString item);
+
+    int checkIfAbsoluteItemAlreadyInList(QListWidget* this_list, QString item);
 };
 
 #endif // MAINWINDOW_H

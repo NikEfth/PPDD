@@ -50,7 +50,7 @@ set ( QWT_LIBRARIES ${QWT_LIBRARY} )
 
 find_package(STIR)
 
-include_directories(/home/nikos/Workspace/install_STIR/include)
+include_directories(/home/nikos/Workspace/src/STIR.install.release/include)
 #include_directories(${CMAKE_SOURCE_DIR})
 
 file(GLOB HEADERS "*.h")
@@ -69,7 +69,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Find the QtWidgets library
 find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
-LINK_DIRECTORIES(/home/nikos/Workspace/install_STIR/lib)
+LINK_DIRECTORIES(/home/nikos/Workspace/src/STIR.install.release/lib)
 
 # Tell CMake to create the helloworld executable
 add_executable(${PROJECT_NAME} ${SOURCES} ${UIS} ${RESOURCES})

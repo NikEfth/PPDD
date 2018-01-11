@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>739</width>
-    <height>682</height>
+    <width>1570</width>
+    <height>829</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -114,7 +114,7 @@ stop: 0 #56a, stop: 0.1 #016);
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>11</height>
+              <height>16</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -124,7 +124,7 @@ font-weight: bold;
 }</string>
             </property>
             <property name="text">
-             <string>Info</string>
+             <string>Opened Files</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -149,91 +149,9 @@ border-top: 1px solid black;
             <property name="class" stdset="0">
              <string>SidebarInnerFrame</string>
             </property>
-            <layout class="QFormLayout" name="formLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_2">
-               <property name="text">
-                <string>Num Rings:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="lbl_nrings">
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_4">
-               <property name="text">
-                <string>Num det./ring:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_5">
-               <property name="text">
-                <string>Num Segs:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_6">
-               <property name="text">
-                <string>Num Views:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_7">
-               <property name="text">
-                <string>Num Tang. poss:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="lbl_ndets">
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="lbl_nsegs">
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLabel" name="lbl_nviews">
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLabel" name="lbl_ntangposs">
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QListWidget" name="listOpenedFiles"/>
              </item>
             </layout>
            </widget>
@@ -279,7 +197,7 @@ stop: 0 #56a, stop: 0.1 #016);
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>13</height>
+              <height>16</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -357,31 +275,6 @@ border-top: 1px solid black;
                <property name="enabled">
                 <bool>false</bool>
                </property>
-               <item>
-                <property name="text">
-                 <string>Black-White</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>White-Black</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Viridis</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Jet</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>QWT</string>
-                </property>
-               </item>
               </widget>
              </item>
              <item row="1" column="0">
@@ -423,7 +316,86 @@ border-top: 1px solid black;
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <layout class="QHBoxLayout" name="mainFrame_layout"/>
+        <layout class="QHBoxLayout" name="mainFrame_layout">
+         <item>
+          <widget class="QMdiArea" name="mdiArea">
+           <property name="viewMode">
+            <enum>QMdiArea::SubWindowView</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="sidebarFrame_2">
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#sidebarFrame _2{
+background: #8af;
+border: none;
+border-right: 1px solid black;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QToolBox" name="toolBox">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="currentIndex">
+            <number>1</number>
+           </property>
+           <widget class="QWidget" name="pg_tools">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>250</width>
+              <height>656</height>
+             </rect>
+            </property>
+            <attribute name="label">
+             <string>Tools</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="page_2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>250</width>
+              <height>656</height>
+             </rect>
+            </property>
+            <attribute name="label">
+             <string>Page 2</string>
+            </attribute>
+           </widget>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -435,7 +407,7 @@ border-top: 1px solid black;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>739</width>
+     <width>1570</width>
      <height>23</height>
     </rect>
    </property>
@@ -444,13 +416,15 @@ border-top: 1px solid black;
      <string>Fi&amp;le</string>
     </property>
     <addaction name="separator"/>
-    <addaction name="actionOpen_sinogram"/>
+    <addaction name="actionOpenFile"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionAbout_QT"/>
+    <addaction name="actionAbout_STIR"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuTools">
@@ -470,19 +444,19 @@ border-top: 1px solid black;
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionOpen_sinogram"/>
+   <addaction name="actionOpenFile"/>
    <addaction name="separator"/>
    <addaction name="actionactionRefresh"/>
    <addaction name="actionSwap_View_mode"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionOpen_sinogram">
+  <action name="actionOpenFile">
    <property name="icon">
     <iconset theme="document-open">
      <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>&amp;Open sinogram</string>
+    <string>&amp;Open File</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -519,10 +493,26 @@ border-top: 1px solid black;
   </action>
   <action name="actionSwap_View_mode">
    <property name="icon">
-    <iconset theme="exchange-positions"/>
+    <iconset theme="exchange-positions">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Swap View mode</string>
+   </property>
+  </action>
+  <action name="actionAbout_QT">
+   <property name="text">
+    <string>About QT</string>
+   </property>
+  </action>
+  <action name="actionAbout_STIR">
+   <property name="text">
+    <string>About STIR</string>
+   </property>
+  </action>
+  <action name="actionCredits">
+   <property name="text">
+    <string>Credits</string>
    </property>
   </action>
  </widget>
