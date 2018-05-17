@@ -1,0 +1,83 @@
+generate_image Parameters :=
+    output filename:=/home/nikos/test_scatter_generator/data/9/my_base_activity_image
+    X output image size (in pixels):=111
+    Y output image size (in pixels):=111
+    Z output image size (in pixels):=47
+    X voxel size (in mm):= 3
+    Y voxel size (in mm):= 3
+    Z voxel size (in mm) :=3.27
+    
+    Z number of samples to take per voxel := 1
+    Y number of samples to take per voxel := 1
+    X number of samples to take per voxel := 1
+    
+shape type:= ellipsoidal cylinder
+    Ellipsoidal Cylinder Parameters:=
+    radius-x (in mm):=80
+    radius-y (in mm):=50
+    length-z (in mm):=330
+    origin (in mm):={0, 7, 0}
+    initial angle (in deg) := 180
+    final angle (in deg) := 0
+    END:=
+    value := 0.97
+    next shape :=
+    
+shape type:= ellipsoidal cylinder
+    Ellipsoidal Cylinder Parameters:=
+    radius-x (in mm):=30
+    radius-y (in mm):=30
+    length-z (in mm):=330
+    origin (in mm):={0, 35, -80}
+    initial angle (in deg) := 90
+    final angle (in deg) := 270
+    END:=
+    value := 0.97
+    next shape :=
+    
+shape type:= ellipsoidal cylinder
+    Ellipsoidal Cylinder Parameters:=
+    radius-x (in mm):=30
+    radius-y (in mm):=30
+    length-z (in mm):=330
+    origin (in mm):={0, 35, 80}
+    initial angle (in deg) := 270
+    final angle (in deg) := 90
+    END:=
+    value := 0.97
+    next shape :=
+    
+shape type:= Box3D
+    box parameters:=
+    origin (in mm):={0, 37, 0}
+    length-x (in mm):=160
+    length-y (in mm):=60
+    length-z (in mm):=330
+    END:=
+    value:= 0.97
+    next shape :=
+    
+shape type:= ellipsoidal cylinder
+    Ellipsoidal Cylinder Parameters:=
+    radius-x (in mm):=55
+    radius-y (in mm):=45
+    length-z (in mm):=330
+    origin (in mm):={0, 15, 5}
+    initial angle (in deg) := 270
+    final angle (in deg) := 90
+    END:=
+    value := -0.9603929999999999
+    next shape :=
+    
+shape type:= ellipsoidal cylinder
+    Ellipsoidal Cylinder Parameters:=
+    radius-x (in mm):=55
+    radius-y (in mm):=45
+    length-z (in mm):=330
+    origin (in mm):={0, 15, -5}
+    initial angle (in deg) := 90
+    final angle (in deg) := 270
+    END:=
+    value := -0.9603929999999999
+    next shape :=
+    

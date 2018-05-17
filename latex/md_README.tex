@@ -1,0 +1,56 @@
+A sinogram viewer for Projection Data.
+
+This is a simple (so far) sinogram viewer, based on Q\+T5 supporting projection data from Positron Emission Tomography (P\+ET) scanners. The \href{https://github.com/UCL/STIR}{\tt S\+T\+IR toolkit} is the backend for reading the projection data and \href{http://qwt.sourceforge.net/}{\tt Q\+WT} is used for the plotting.
+
+
+
+{\itshape {\bfseries Warning (22/12/17)}} $\ast$$\ast$\+The C\+Make file is still a bit of a mess, so please be sure the you have installed S\+T\+IR and Q\+WT before hand. $\ast$$\ast$
+
+\subsection*{Installation}
+
+\subsubsection*{Linux systems}
+
+\paragraph*{Dependencies}
+
+
+\begin{DoxyEnumerate}
+\item Download and compile the git version of S\+T\+IR. This stable version at sourceforge has not been tested.
+\item Either install on a global location (e.\+g. {\ttfamily /usr/local}) or define your custome location in {\ttfamily \$\+P\+A\+TH}.
+\item Download and install Q\+WT $\ast$$\ast$$>$v.\+6.\+xx$\ast$$\ast$, preferably in a global location (some distributions provide packages for this).
+\end{DoxyEnumerate}
+
+$\ast$\+These are the only two dependencies. All other in the C\+M\+A\+K\+E\+L\+I\+S\+T\+S.\+txt will be dropped. In one of the next commits. $\ast$ \paragraph*{Sino\+\_\+viewer}
+
+
+\begin{DoxyEnumerate}
+\item Clone the repository \href{https://github.com/NikEfth/sino_viewer}{\tt Sino\+\_\+viewer}.
+\item {\bfseries warning} for the time being, if you have not installed S\+T\+IR on a global location you have to edit the C\+M\+A\+K\+E\+L\+I\+S\+T\+S.\+txt. Replace the S\+T\+IR path from the current to the one on your system.
+\item If Q\+WT is global it will be detected automatically.
+\item Create a new folder {\ttfamily sino\+\_\+viewer.\+build} outside the main folder of the project.
+\item Go to {\ttfamily sino\+\_\+viewer.\+build} and run {\ttfamily ccmake \mbox{[}S\+O\+U\+R\+C\+E\+\_\+\+P\+A\+TH\mbox{]}}.
+\item {\ttfamily make all}
+\item (optionally) {\ttfamily make install}
+\end{DoxyEnumerate}
+
+\subsubsection*{Other OP systems}
+
+No idea, really!
+
+\subsubsection*{How to use}
+
+\paragraph*{Load sinogram}
+
+
+\begin{DoxyEnumerate}
+\item Use the {\ttfamily File \+:\+: Open Projection Data} option and select a Interfile header file (.hs). {\itshape As S\+T\+IR framework expands in the future, any supported file types (that is stored as Proj\+Data) will be, probably automatically, supported}.
+\item A pop-\/up window will appear to allow to select between sinogram and viewgram view mode. Once selected this cannot change. The control widgets will be updated to the appropriate sizes.
+\item Different number of viewports are supported.
+\item Colormaps can be selected. 
+\item A slider bar is used for scrolling between the positions.
+\end{DoxyEnumerate}
+
+\paragraph*{Save a sinogram}
+
+Any sinogram can be saved either as image file (P\+NG) or as interfile (.hv \& .v). By right click on the sinogram, a context menu will appear.
+
+ 

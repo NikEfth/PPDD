@@ -1,0 +1,114 @@
+\hypertarget{classRectTool}{}\section{Rect\+Tool Class Reference}
+\label{classRectTool}\index{Rect\+Tool@{Rect\+Tool}}
+Inheritance diagram for Rect\+Tool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classRectTool}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRectTool_a3a2b0b9e208c876e08588378fe90aac4}\label{classRectTool_a3a2b0b9e208c876e08588378fe90aac4}} 
+void {\bfseries new\+\_\+\+Selection} (const Q\+RectF \&points)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTool_a68dea3e4c911f3174176084d350865cc}\label{classTool_a68dea3e4c911f3174176084d350865cc}} 
+void {\bfseries this\+\_\+selection} (const Q\+Vector$<$ Q\+PointF $>$ \&, Qwt\+Plot $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRectTool_aa2ec592743f5be9366620cfcd76ac91a}\label{classRectTool_aa2ec592743f5be9366620cfcd76ac91a}} 
+{\bfseries Rect\+Tool} (Q\+Widget $\ast$parent=0)
+\item 
+\mbox{\Hypertarget{classRectTool_a0061642e759546f6dcd7c1a2c3b96393}\label{classRectTool_a0061642e759546f6dcd7c1a2c3b96393}} 
+void {\bfseries set\+Plot} (Qwt\+Plot $\ast$)
+\item 
+\mbox{\Hypertarget{classRectTool_a08ce587da86dc1b8335cb265bb2a3efd}\label{classRectTool_a08ce587da86dc1b8335cb265bb2a3efd}} 
+void {\bfseries unset\+Plot} ()
+\item 
+\mbox{\Hypertarget{classRectTool_a1ce7bea2dcb7d122be6fd342720c986c}\label{classRectTool_a1ce7bea2dcb7d122be6fd342720c986c}} 
+virtual void {\bfseries finished\+Selecting} ()
+\item 
+virtual void \mbox{\hyperlink{classRectTool_a22ddb88797de61ed921a5cd3462383ea}{clear\+Before\+Un\+Set}} ()
+\item 
+\mbox{\Hypertarget{classTool_a020bd5757a03ea7321848a3874f3a8cb}\label{classTool_a020bd5757a03ea7321848a3874f3a8cb}} 
+virtual bool {\bfseries event\+Filter} (Q\+Object $\ast$, Q\+Event $\ast$)
+\item 
+\mbox{\Hypertarget{classTool_aa30c64915020a71d0ea8650e8e966336}\label{classTool_aa30c64915020a71d0ea8650e8e966336}} 
+virtual Q\+String {\bfseries get\+\_\+name} () const
+\item 
+\mbox{\Hypertarget{classTool_a507adfcdafc818d9628b952001b93f3c}\label{classTool_a507adfcdafc818d9628b952001b93f3c}} 
+void {\bfseries get\+\_\+data} (Q\+Vector$<$ Q\+PointF $>$ \&, Qwt\+Plot $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRectTool_aa24f7207666cb72fd396862c6013ab3b}\label{classRectTool_aa24f7207666cb72fd396862c6013ab3b}} 
+void \mbox{\hyperlink{classRectTool_aa24f7207666cb72fd396862c6013ab3b}{select}} (const Q\+PointF \&)
+\begin{DoxyCompactList}\small\item\em On mouse press action. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRectTool_a21478352a886535737011ed50b876f72}\label{classRectTool_a21478352a886535737011ed50b876f72}} 
+void \mbox{\hyperlink{classRectTool_a21478352a886535737011ed50b876f72}{move}} (const Q\+PointF \&)
+\begin{DoxyCompactList}\small\item\em On mouse press and drag action. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRectTool_ac1f75f3000ecc9549b81f918384b9802}\label{classRectTool_ac1f75f3000ecc9549b81f918384b9802}} 
+void \mbox{\hyperlink{classRectTool_ac1f75f3000ecc9549b81f918384b9802}{clear\+Selection}} ()
+\begin{DoxyCompactList}\small\item\em Remove all curves from the c\+\_\+paint\+Device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRectTool_a920b87fd4186cecd879240480e246c34}\label{classRectTool_a920b87fd4186cecd879240480e246c34}} 
+void {\bfseries update\+Rubber\+Band} ()
+\item 
+bool \mbox{\hyperlink{classTool_a81244366dc1b9f55465ed6f37b81033c}{check\+Point\+In\+Range}} (const Q\+PointF \&\+\_\+local)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRectTool_a97033d50439b655b4fdf9688fe77a88e}\label{classRectTool_a97033d50439b655b4fdf9688fe77a88e}} 
+Qwt\+Plot\+Curve $\ast$ {\bfseries curveA}
+\item 
+\mbox{\Hypertarget{classTool_af0935d8e8edd73d8ec85424b5b15196b}\label{classTool_af0935d8e8edd73d8ec85424b5b15196b}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{classTool_a1e301a03c5806c900786760d80049380}\label{classTool_a1e301a03c5806c900786760d80049380}} 
+Qwt\+Plot\+Canvas $\ast$ {\bfseries c\+\_\+paint\+Device}
+\item 
+\mbox{\Hypertarget{classTool_af1d11cc5374ba7eb7c1d41cfb5d4e981}\label{classTool_af1d11cc5374ba7eb7c1d41cfb5d4e981}} 
+Qwt\+Plot\+Spectrogram $\ast$ {\bfseries d\+\_\+spectrogram}
+\item 
+Q\+Vector$<$ Q\+PointF $>$ \mbox{\hyperlink{classTool_a68be77a2e364a7b13d7206388ba5843e}{\+\_\+points}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTool_a81244366dc1b9f55465ed6f37b81033c}\label{classTool_a81244366dc1b9f55465ed6f37b81033c}} 
+\index{Rect\+Tool@{Rect\+Tool}!check\+Point\+In\+Range@{check\+Point\+In\+Range}}
+\index{check\+Point\+In\+Range@{check\+Point\+In\+Range}!Rect\+Tool@{Rect\+Tool}}
+\subsubsection{\texorpdfstring{check\+Point\+In\+Range()}{checkPointInRange()}}
+{\footnotesize\ttfamily bool Tool\+::check\+Point\+In\+Range (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{\+\_\+local }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+This is a preliminiry check to see if the point is within the axis range. It has been proven somewhat week condition, as in many cases it fails to provide realible results. \mbox{\Hypertarget{classRectTool_a22ddb88797de61ed921a5cd3462383ea}\label{classRectTool_a22ddb88797de61ed921a5cd3462383ea}} 
+\index{Rect\+Tool@{Rect\+Tool}!clear\+Before\+Un\+Set@{clear\+Before\+Un\+Set}}
+\index{clear\+Before\+Un\+Set@{clear\+Before\+Un\+Set}!Rect\+Tool@{Rect\+Tool}}
+\subsubsection{\texorpdfstring{clear\+Before\+Un\+Set()}{clearBeforeUnSet()}}
+{\footnotesize\ttfamily void Rect\+Tool\+::clear\+Before\+Un\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Cal this function to clean before unsetting a tool. It will try to tight up the screen. 
+
+Implements \mbox{\hyperlink{classTool_a7d9e7d03f4a34d71850cbbfc16ca8532}{Tool}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classTool_a68be77a2e364a7b13d7206388ba5843e}\label{classTool_a68be77a2e364a7b13d7206388ba5843e}} 
+\index{Rect\+Tool@{Rect\+Tool}!\+\_\+points@{\+\_\+points}}
+\index{\+\_\+points@{\+\_\+points}!Rect\+Tool@{Rect\+Tool}}
+\subsubsection{\texorpdfstring{\+\_\+points}{\_points}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+PointF$>$ Tool\+::\+\_\+points\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+This vector holds the characteristic points of the selected R\+OI. The \mbox{\hyperlink{classCrossPointerTool}{Cross\+Pointer\+Tool}} has just one point. The \mbox{\hyperlink{classLineTool}{Line\+Tool}} has two points (e.\+g. start and stop) e.\+t.\+c 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/tools\+\_\+buildblock/recttool.\+h\item 
+src/tools\+\_\+buildblock/recttool.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\hypertarget{classToolManager}{}\section{Tool\+Manager Class Reference}
+\label{classToolManager}\index{Tool\+Manager@{Tool\+Manager}}
+Inheritance diagram for Tool\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classToolManager}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classToolManager_a7ca8d129c5ec26d50650bd94962c3339}\label{classToolManager_a7ca8d129c5ec26d50650bd94962c3339}} 
+void {\bfseries update\+Menus} (Q\+Widget $\ast$\+\_\+w=0)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classToolManager_aa2f5d9b90348fc40dbffe14561323c36}\label{classToolManager_aa2f5d9b90348fc40dbffe14561323c36}} 
+void {\bfseries tool\+\_\+selected} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTool}{Tool}} $>$)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classToolManager_a545deb9764ae2e7a3f400c5cbb39ad97}\label{classToolManager_a545deb9764ae2e7a3f400c5cbb39ad97}} 
+{\bfseries Tool\+Manager} (Q\+Widget $\ast$parent=0)
+\item 
+\mbox{\Hypertarget{classToolManager_af014405a887ece8d7f1b9f615cf23ba9}\label{classToolManager_af014405a887ece8d7f1b9f615cf23ba9}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classPointerTool}{Pointer\+Tool}} $>$ {\bfseries mouse\+Pointer} () const
+\item 
+\mbox{\Hypertarget{classToolManager_aa3d042011bef91da4b62abba3ed57bf5}\label{classToolManager_aa3d042011bef91da4b62abba3ed57bf5}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLineTool}{Line\+Tool}} $>$ {\bfseries mouse\+Line\+Pointer} () const
+\item 
+\mbox{\Hypertarget{classToolManager_ac41a1125038d46a2f58340a7c4618b29}\label{classToolManager_ac41a1125038d46a2f58340a7c4618b29}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCrossPointerTool}{Cross\+Pointer\+Tool}} $>$ {\bfseries mouse\+Cross\+Pointer} () const
+\item 
+\mbox{\Hypertarget{classToolManager_a30041d36e599e0eb5026130c4bfede93}\label{classToolManager_a30041d36e599e0eb5026130c4bfede93}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classRectTool}{Rect\+Tool}} $>$ {\bfseries mouse\+Rect\+Pointer} () const
+\item 
+\mbox{\Hypertarget{classToolManager_ab7e6dfe68ed07dc91dbfafc2c12f4621}\label{classToolManager_ab7e6dfe68ed07dc91dbfafc2c12f4621}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTool}{Tool}} $>$ {\bfseries get\+Current\+Tool} () const
+\item 
+\mbox{\Hypertarget{classToolManager_acf037bd364532b9bf2dec9564ec630f7}\label{classToolManager_acf037bd364532b9bf2dec9564ec630f7}} 
+void {\bfseries set\+Screen} (\mbox{\hyperlink{classScreen__manager}{Screen\+\_\+manager}} $\ast$\+\_\+s)
+\item 
+\mbox{\Hypertarget{classToolManager_a3f3257e4c8d3cc407b734438a99dba3e}\label{classToolManager_a3f3257e4c8d3cc407b734438a99dba3e}} 
+void {\bfseries unset\+Screen} ()
+\item 
+Pixels\+On\+Cartesian\+Grid$<$ float $>$ \mbox{\hyperlink{classToolManager_a2b92398db6ca45c14b28bc54fbe4d64a}{get\+Selection}} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classToolManager_a04210d43878f8b154b927b3d88e4415c}\label{classToolManager_a04210d43878f8b154b927b3d88e4415c}} 
+\mbox{\hyperlink{classScreen__manager}{Screen\+\_\+manager}} $\ast$ {\bfseries sc}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classToolManager_a2b92398db6ca45c14b28bc54fbe4d64a}\label{classToolManager_a2b92398db6ca45c14b28bc54fbe4d64a}} 
+\index{Tool\+Manager@{Tool\+Manager}!get\+Selection@{get\+Selection}}
+\index{get\+Selection@{get\+Selection}!Tool\+Manager@{Tool\+Manager}}
+\subsubsection{\texorpdfstring{get\+Selection()}{getSelection()}}
+{\footnotesize\ttfamily Pixels\+On\+Cartesian\+Grid$<$ float $>$ Tool\+Manager\+::get\+Selection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the current selection. If no selection has been made the full slice will return. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/tools\+\_\+buildblock/Tool\+Manager.\+h\item 
+src/tools\+\_\+buildblock/Tool\+Manager.\+cpp\item 
+src/tools\+\_\+buildblock/Tool\+Manager.\+inl\end{DoxyCompactItemize}

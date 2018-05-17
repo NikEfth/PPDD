@@ -1,0 +1,25 @@
+generate_image Parameters :=
+    output filename:=test_box_1
+    X output image size (in pixels):=111
+    Y output image size (in pixels):=111
+    Z output image size (in pixels):=47
+    X voxel size (in mm):= 3
+    Y voxel size (in mm):= 3
+    Z voxel size (in mm) :=3.27
+    
+    Z number of samples to take per voxel := 1
+    Y number of samples to take per voxel := 1
+    X number of samples to take per voxel := 1
+    
+; now cut lower activity in a box
+shape type:= Box3D
+box parameters:=
+origin (in mm):={130.375, 0, 0}
+length-x (in mm):=40
+length-y (in mm):=40
+length-z (in mm):=50
+END:=
+value:=1
+
+
+END:=

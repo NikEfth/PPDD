@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['get_5fbackground',['get_background',['../classViewer_1_1ColorMap.html#a3bc78d781d00be3fbe437505073f1a17',1,'Viewer::ColorMap']]],
+  ['get_5fmax_5fvalue_5fall',['get_max_value_all',['../classScreen__manager.html#a39bc17ac270cdea092e20bed9d3a1e65',1,'Screen_manager']]],
+  ['get_5fmin_5fvalue_5fall',['get_min_value_all',['../classScreen__manager.html#ac859de377f3ac1b7f18a9be9a21c193b',1,'Screen_manager']]],
+  ['get_5fpeak_5fcolor',['get_peak_color',['../classViewer_1_1ColorMap.html#a45f3fee7f63adbd3df53f9d6c7b5d148',1,'Viewer::ColorMap']]],
+  ['getactivedisplayscreen',['getActiveDisplayScreen',['../classScreen__manager.html#a317d60e000518cd1af48d04dca139f43',1,'Screen_manager']]],
+  ['getcolormapindex',['getColorMapIndex',['../classScreen__manager.html#a44503ee6f24482b8d01797503b0d88a8',1,'Screen_manager']]],
+  ['getcolormaplist',['getColormapList',['../classViewer_1_1ColorMap.html#afa76c34f7d1b8388d25bf181743e2cc7',1,'Viewer::ColorMap']]],
+  ['getcross',['getCross',['../classViewer_1_1SimpleVector3D.html#a16d6e68bd050c824b88fdb7ffe064225',1,'Viewer::SimpleVector3D']]],
+  ['getcurrentcursor',['getCurrentCursor',['../classScreen__manager.html#a86a2c051954195c03f8718f4e371c221',1,'Screen_manager::getCurrentCursor() const'],['../classScreen__manager.html#a9cb3da1f84299ee2c32e4032e7e19ed1',1,'Screen_manager::getCurrentCursor() const']]],
+  ['getcurrentcursorinmm',['getCurrentCursorInmm',['../classScreen__manager.html#a5437afdf92d233dfba71df3520861d2c',1,'Screen_manager::getCurrentCursorInmm()'],['../classScreen__manager__ImageData.html#a732195e4fae93f0f725df94c7a0b3ef7',1,'Screen_manager_ImageData::getCurrentCursorInmm()'],['../classscreen__manager__ProjData.html#af44186503b9c822764d92c48c9cfe7ca',1,'screen_manager_ProjData::getCurrentCursorInmm()']]],
+  ['getdatatype',['getDataType',['../classScreen__manager.html#af2ea7252c092d06e846e6d50338db8ca',1,'Screen_manager::getDataType()'],['../classScreen__manager__ImageData.html#a16f2f25a0bdc587ace3cbddeb2bdc925',1,'Screen_manager_ImageData::getDataType()'],['../classscreen__manager__ProjData.html#a0f256fa37e1bb4f1e85cd1be9cfefe1a',1,'screen_manager_ProjData::getDataType()']]],
+  ['getdisplaylayout',['getDisplayLayout',['../classScreen__manager.html#a6c41fbe3b06a11879010f8cce4488953',1,'Screen_manager']]],
+  ['getfilename',['getFileName',['../classScreen__manager.html#ab773fd2975a54a2baaeb441b2644607d',1,'Screen_manager']]],
+  ['getfullfilepath',['getFullFilePath',['../classScreen__manager.html#a35fad2826491912a33af8f6b5192abc4',1,'Screen_manager']]],
+  ['getgridspacing',['getGridSpacing',['../classdisplay__screen.html#addb4faa7ad8c8dd34de9543a01ecd4af',1,'display_screen::getGridSpacing()'],['../classdisplay__screen__raster.html#a494cf5aca93f26d87e7d4452c17852b8',1,'display_screen_raster::getGridSpacing()']]],
+  ['getnumrays',['getNumRays',['../classPanelLinePointer.html#a8f3fabdf4ead8d94ed1dee4aa5fe202e',1,'PanelLinePointer']]],
+  ['getposition',['getPosition',['../classViewer_1_1SimpleVector3D.html#a32c0cbb4c6e62c4f06c1dbfaa6b2c903',1,'Viewer::SimpleVector3D']]],
+  ['getselection',['getSelection',['../classToolManager.html#a2b92398db6ca45c14b28bc54fbe4d64a',1,'ToolManager']]],
+  ['getthresholdvalue',['getThresholdValue',['../classThresholdMan.html#a86ada2cb5a498fe86616031d1f5e0fc8',1,'ThresholdMan']]],
+  ['getvalueat',['getValueAt',['../classScreen__manager__ImageData.html#a5a6b9ca733f09425b0d2ce81bf900664',1,'Screen_manager_ImageData']]],
+  ['getviewportsindex',['getViewportsIndex',['../classScreen__manager.html#aec8c672544208e60368172e662de815e',1,'Screen_manager']]],
+  ['gimp_20pro',['GIMP Pro',['../md_resources_gimp-pro_README.html',1,'']]]
+];

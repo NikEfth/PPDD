@@ -1,2 +1,9 @@
 [Desktop Entry]
-Icon=/home/nikos/Workspace/sino_viewer/resources/icons8-microbeam-radiation-therapy-80.png
+Icon=/home/nikos/Workspace/PPDD/resources/icons8-microbeam-radiation-therapy-80.png
+
+[Dolphin]
+Timestamp=2018,5,17,14,57,15
+Version=4
+
+[Settings]
+HiddenFilesShown=true

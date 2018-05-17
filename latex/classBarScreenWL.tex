@@ -1,0 +1,232 @@
+\hypertarget{classBarScreenWL}{}\section{Bar\+Screen\+WL Class Reference}
+\label{classBarScreenWL}\index{Bar\+Screen\+WL@{Bar\+Screen\+WL}}
+Inheritance diagram for Bar\+Screen\+WL\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classBarScreenWL}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBarScreenWL_afe0474598cdfc4ed117c6f7300a90a92}\label{classBarScreenWL_afe0474598cdfc4ed117c6f7300a90a92}} 
+void \mbox{\hyperlink{classBarScreenWL_afe0474598cdfc4ed117c6f7300a90a92}{replot\+\_\+me}} ()
+\begin{DoxyCompactList}\small\item\em This is called when the data have been changed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBarScreen_a73d64473bee2dceb5e14f6ecd9085c5a}\label{classBarScreen_a73d64473bee2dceb5e14f6ecd9085c5a}} 
+void {\bfseries unset\+Screen} (bool \+\_\+state)
+\item 
+\mbox{\Hypertarget{classBarScreen_a584ecbf24a178b74fee22eb40e6281de}\label{classBarScreen_a584ecbf24a178b74fee22eb40e6281de}} 
+bool {\bfseries set\+Screen} (Q\+Widget $\ast$, const bool \+\_\+global=false)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBarScreen_a39dadd115d8012630aac2ff7cb188fa6}\label{classBarScreen_a39dadd115d8012630aac2ff7cb188fa6}} 
+void {\bfseries markers\+Updated} (const float \&, const float \&)
+\item 
+\mbox{\Hypertarget{classBarScreen_a3251fb8903f71f8ea0df00d17b7302cf}\label{classBarScreen_a3251fb8903f71f8ea0df00d17b7302cf}} 
+void {\bfseries WL} (const float \&, const float \&)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a361e5d99c9ba639e5caa053bb5f161e0}\label{classBarScreenWL_a361e5d99c9ba639e5caa053bb5f161e0}} 
+{\bfseries Bar\+Screen\+WL} (Q\+Widget $\ast$parent=0)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a6f4e3adc277e51b8fc427a06ee0c494d}\label{classBarScreenWL_a6f4e3adc277e51b8fc427a06ee0c494d}} 
+void {\bfseries set\+Window} (const float \&\+\_\+m)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a23531a0e46637ef6fbbfe5c192521cd2}\label{classBarScreenWL_a23531a0e46637ef6fbbfe5c192521cd2}} 
+void {\bfseries set\+Level} (const float \&\+\_\+m)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a3130db616461fb3e9db9b54188d2715b}\label{classBarScreenWL_a3130db616461fb3e9db9b54188d2715b}} 
+void {\bfseries initialise\+Plot\+Area} ()
+\item 
+\mbox{\Hypertarget{classBarScreenWL_aac2ca60412c5718c354191b2e8d8ddc9}\label{classBarScreenWL_aac2ca60412c5718c354191b2e8d8ddc9}} 
+void {\bfseries move} (Q\+Point to)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a6a7085d5b14f17255b4724eb011b3e57}\label{classBarScreenWL_a6a7085d5b14f17255b4724eb011b3e57}} 
+void {\bfseries move\+Markersby} (Q\+PointF dis)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a1b374e47c58463d100823d9a10efa98a}\label{classBarScreenWL_a1b374e47c58463d100823d9a10efa98a}} 
+float {\bfseries get\+Window} () const
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a9ad0bab5b89b52d377c4fd835411cbc0}\label{classBarScreenWL_a9ad0bab5b89b52d377c4fd835411cbc0}} 
+float {\bfseries get\+Level} () const
+\item 
+\mbox{\Hypertarget{classBarScreenWL_ac881bb98cc168be4ec5a85b7eec08998}\label{classBarScreenWL_ac881bb98cc168be4ec5a85b7eec08998}} 
+void {\bfseries set\+Min\+Marker} (const float \&\+\_\+m)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_ac4924b94bdf8b03a4cdf401e9e5692c4}\label{classBarScreenWL_ac4924b94bdf8b03a4cdf401e9e5692c4}} 
+void {\bfseries set\+Max\+Marker} (const float \&\+\_\+m)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a3a2f5fd225168fe850d08d57a7d46e23}\label{classBarScreenWL_a3a2f5fd225168fe850d08d57a7d46e23}} 
+virtual bool {\bfseries event} (Q\+Event $\ast$)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a6fe94b0eae1c5fb513837b7cf424b67f}\label{classBarScreenWL_a6fe94b0eae1c5fb513837b7cf424b67f}} 
+void {\bfseries set\+C\+OG} (Q\+Point \+\_\+cog)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_af1d50a882140b7dbfe27aaa08f54e903}\label{classBarScreenWL_af1d50a882140b7dbfe27aaa08f54e903}} 
+void {\bfseries reset\+C\+OG} (int \+\_\+state=-\/1)
+\item 
+\mbox{\Hypertarget{classBarScreen_a1950f3ff2fcb6f9c815480d79c41bcdd}\label{classBarScreen_a1950f3ff2fcb6f9c815480d79c41bcdd}} 
+Q\+Vector$<$ Qwt\+Interval\+Sample $>$\+::iterator {\bfseries get\+\_\+data\+\_\+begin} ()
+\item 
+\mbox{\Hypertarget{classBarScreen_a8b4c985476a91cfbaba65f9efb2fb98d}\label{classBarScreen_a8b4c985476a91cfbaba65f9efb2fb98d}} 
+Q\+Vector$<$ Qwt\+Interval\+Sample $>$\+::iterator {\bfseries get\+\_\+data\+\_\+end} ()
+\item 
+\mbox{\Hypertarget{classBarScreen_aa39400dbc0e698031f526a5696c5f05e}\label{classBarScreen_aa39400dbc0e698031f526a5696c5f05e}} 
+void {\bfseries set\+Num\+Bin} (const int \&\+\_\+n)
+\item 
+\mbox{\Hypertarget{classBarScreen_a31a0a0513a3506fd31b4921d9ef9de5f}\label{classBarScreen_a31a0a0513a3506fd31b4921d9ef9de5f}} 
+void {\bfseries set\+Cut\+Off} (const float \&\+\_\+n)
+\item 
+\mbox{\Hypertarget{classBarScreen_a3619df2d1013dcd882836654bdc7eca8}\label{classBarScreen_a3619df2d1013dcd882836654bdc7eca8}} 
+float {\bfseries get\+Min\+Marker} () const
+\item 
+\mbox{\Hypertarget{classBarScreen_a8c31c0657a9eae009fae26a6095527af}\label{classBarScreen_a8c31c0657a9eae009fae26a6095527af}} 
+float {\bfseries get\+Max\+Marker} () const
+\item 
+\mbox{\Hypertarget{classBarScreen_a8b1fd79efa17f74f838604cf28e82497}\label{classBarScreen_a8b1fd79efa17f74f838604cf28e82497}} 
+float {\bfseries get\+Min\+Value} () const
+\item 
+\mbox{\Hypertarget{classBarScreen_a6621f8fa1c402d63dd9ac1a29002eb38}\label{classBarScreen_a6621f8fa1c402d63dd9ac1a29002eb38}} 
+float {\bfseries get\+Max\+Value} () const
+\item 
+\mbox{\Hypertarget{classBarScreen_ab9e1489e0b5d95f26fd7a00763e91d11}\label{classBarScreen_ab9e1489e0b5d95f26fd7a00763e91d11}} 
+virtual bool {\bfseries set\+Image\+Data} ()
+\item 
+\mbox{\Hypertarget{classBarScreen_a3c553483ebb07bd496004d8300eb804f}\label{classBarScreen_a3c553483ebb07bd496004d8300eb804f}} 
+Q\+PointF {\bfseries get\+Pointof\+Bin} (const int \&\+\_\+index)
+\item 
+\mbox{\Hypertarget{classBarScreen_acba5c2bfeac649e5ffdea5255a4537d8}\label{classBarScreen_acba5c2bfeac649e5ffdea5255a4537d8}} 
+Q\+PointF {\bfseries get\+Max\+Frequency\+Point} ()
+\item 
+\mbox{\Hypertarget{classBarScreen_a2a02e1300c43cebc6b61140e7aebc82c}\label{classBarScreen_a2a02e1300c43cebc6b61140e7aebc82c}} 
+Q\+PointF {\bfseries get\+Last\+Bin\+Point} ()
+\item 
+\mbox{\Hypertarget{classBarScreen_aad073d21512c112ca8892e1d7be7b21c}\label{classBarScreen_aad073d21512c112ca8892e1d7be7b21c}} 
+double {\bfseries get\+Bin\+Value} (const int \&\+\_\+index)
+\item 
+\mbox{\Hypertarget{classBarScreen_ab6abcfa2f17cd1abe87f33cd2de73683}\label{classBarScreen_ab6abcfa2f17cd1abe87f33cd2de73683}} 
+double {\bfseries get\+Sum} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBarScreenWL_ae9fc48d793992e407f97482633e45b6f}\label{classBarScreenWL_ae9fc48d793992e407f97482633e45b6f}} 
+virtual void {\bfseries move\+Markers} (const double \&lp, const double \&up)
+\item 
+\mbox{\Hypertarget{classBarScreenWL_adce784a784ce08d5869c06b47c47f5cd}\label{classBarScreenWL_adce784a784ce08d5869c06b47c47f5cd}} 
+void {\bfseries draw\+Curve} ()
+\item 
+\mbox{\Hypertarget{classBarScreenWL_acfd77bb6baf8be662ddb887f012c007b}\label{classBarScreenWL_acfd77bb6baf8be662ddb887f012c007b}} 
+void {\bfseries full\+Contrast} ()
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a5ba898b64823f473102e06a262aaf3e2}\label{classBarScreenWL_a5ba898b64823f473102e06a262aaf3e2}} 
+void {\bfseries optimum\+Contrast} ()
+\item 
+void \mbox{\hyperlink{classBarScreen_ae652343345f7cc3f7726569c1195ee9a}{initialse\+Histogram}} ()
+\item 
+\mbox{\Hypertarget{classBarScreen_a3e9d73bcf97e00634bf7c8b78d2cbad0}\label{classBarScreen_a3e9d73bcf97e00634bf7c8b78d2cbad0}} 
+void \mbox{\hyperlink{classBarScreen_a3e9d73bcf97e00634bf7c8b78d2cbad0}{update\+Histogram}} ()
+\begin{DoxyCompactList}\small\item\em Update the histogram. Call this when data are changed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBarScreen_a4d2a43c01c702ce90ffd4433a07d2b73}\label{classBarScreen_a4d2a43c01c702ce90ffd4433a07d2b73}} 
+bool {\bfseries unset\+Image\+Data} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBarScreenWL_a09e670ae9f4ac759f814d9725d732b40}\label{classBarScreenWL_a09e670ae9f4ac759f814d9725d732b40}} 
+qreal {\bfseries window}
+\item 
+\mbox{\Hypertarget{classBarScreenWL_af3ed995aa130039c6bfb5e4ca20f9293}\label{classBarScreenWL_af3ed995aa130039c6bfb5e4ca20f9293}} 
+qreal {\bfseries level}
+\item 
+\mbox{\Hypertarget{classBarScreen_a78c84b8c40247d7cb011424250d16ba5}\label{classBarScreen_a78c84b8c40247d7cb011424250d16ba5}} 
+\mbox{\hyperlink{classScreen__manager}{Screen\+\_\+manager}} $\ast$ {\bfseries sc}
+\item 
+\mbox{\Hypertarget{classBarScreen_a5d3193a8e27fd072ed67f069dac1640b}\label{classBarScreen_a5d3193a8e27fd072ed67f069dac1640b}} 
+qreal \mbox{\hyperlink{classBarScreen_a5d3193a8e27fd072ed67f069dac1640b}{ll}}
+\begin{DoxyCompactList}\small\item\em Lower threshold. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBarScreen_a3b456d8140f716cfee488091c927d54f}\label{classBarScreen_a3b456d8140f716cfee488091c927d54f}} 
+qreal \mbox{\hyperlink{classBarScreen_a3b456d8140f716cfee488091c927d54f}{uu}}
+\begin{DoxyCompactList}\small\item\em Upper threshold. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBarScreen_a3d5a447b9895c22cf4e28ea041cef272}\label{classBarScreen_a3d5a447b9895c22cf4e28ea041cef272}} 
+std\+::unique\+\_\+ptr$<$ Q\+PointF $>$ {\bfseries min\+Marker}
+\item 
+\mbox{\Hypertarget{classBarScreen_a80404aaebe17ccccf1918c8f7b59dc3e}\label{classBarScreen_a80404aaebe17ccccf1918c8f7b59dc3e}} 
+std\+::unique\+\_\+ptr$<$ Q\+PointF $>$ {\bfseries max\+Marker}
+\item 
+\mbox{\Hypertarget{classBarScreen_a92a1082b85912224f43a4f2ea85aa289}\label{classBarScreen_a92a1082b85912224f43a4f2ea85aa289}} 
+gsl\+\_\+histogram $\ast$ {\bfseries h}
+\item 
+\mbox{\Hypertarget{classBarScreen_ad590da057a164a1d8a5339243165adf7}\label{classBarScreen_ad590da057a164a1d8a5339243165adf7}} 
+Qwt\+Plot\+Curve $\ast$ {\bfseries curve}
+\item 
+\mbox{\Hypertarget{classBarScreen_a760794dcf754291e8048d11b59f164c4}\label{classBarScreen_a760794dcf754291e8048d11b59f164c4}} 
+qint8 {\bfseries state}
+\item 
+\mbox{\Hypertarget{classBarScreen_ae1d1f7ad5265d8cab9cfb4508060d888}\label{classBarScreen_ae1d1f7ad5265d8cab9cfb4508060d888}} 
+Qwt\+Plot\+Histogram $\ast$ {\bfseries d\+\_\+hist\+Item}
+\item 
+\mbox{\Hypertarget{classBarScreen_a0521180a30d14315bc7a98471d616392}\label{classBarScreen_a0521180a30d14315bc7a98471d616392}} 
+Q\+Vector$<$ Qwt\+Interval\+Sample $>$ {\bfseries series}
+\item 
+\mbox{\Hypertarget{classBarScreen_a76549683ce4069172a98f3166a24cec7}\label{classBarScreen_a76549683ce4069172a98f3166a24cec7}} 
+Q\+Vector$<$ Qwt\+Interval $>$ {\bfseries intervalA}
+\item 
+\mbox{\Hypertarget{classBarScreen_a87fe5a37838e56362f08d5a58f60342f}\label{classBarScreen_a87fe5a37838e56362f08d5a58f60342f}} 
+int {\bfseries num\+Bins}
+\item 
+\mbox{\Hypertarget{classBarScreen_abeadea18d6006cdf5a0d0a8f4f757d8f}\label{classBarScreen_abeadea18d6006cdf5a0d0a8f4f757d8f}} 
+float {\bfseries cut\+Off}
+\item 
+\mbox{\Hypertarget{classBarScreen_ac4309c85d480f5a3d706082824983b66}\label{classBarScreen_ac4309c85d480f5a3d706082824983b66}} 
+double {\bfseries def\+\_\+min}
+\item 
+\mbox{\Hypertarget{classBarScreen_a84c112218b1ba0d4c1b7d1f686719f6a}\label{classBarScreen_a84c112218b1ba0d4c1b7d1f686719f6a}} 
+double {\bfseries def\+\_\+max}
+\item 
+\mbox{\Hypertarget{classBarScreen_a3a27d451636712e1753eaf2db3f85f15}\label{classBarScreen_a3a27d451636712e1753eaf2db3f85f15}} 
+double {\bfseries range}
+\item 
+\mbox{\Hypertarget{classBarScreen_a2cb90ccb8dcd7b33d9080a449de15078}\label{classBarScreen_a2cb90ccb8dcd7b33d9080a449de15078}} 
+double {\bfseries cc}
+\item 
+\mbox{\Hypertarget{classBarScreen_ac8a4ecb5610b79c443fbcb6e062b57ff}\label{classBarScreen_ac8a4ecb5610b79c443fbcb6e062b57ff}} 
+Q\+Point {\bfseries cog}
+\item 
+\mbox{\Hypertarget{classBarScreen_a08aebf344206b301e0c33b6115e5c485}\label{classBarScreen_a08aebf344206b301e0c33b6115e5c485}} 
+Q\+Pixmap {\bfseries cursor\+\_\+pixmap}
+\item 
+\mbox{\Hypertarget{classBarScreen_a2be28f5fb73a79676c840fa62a482c63}\label{classBarScreen_a2be28f5fb73a79676c840fa62a482c63}} 
+Qwt\+Symbol $\ast$ {\bfseries d}
+\item 
+\mbox{\Hypertarget{classBarScreen_a93ef91eff5bcac1a17ccb7b5a4811368}\label{classBarScreen_a93ef91eff5bcac1a17ccb7b5a4811368}} 
+float \mbox{\hyperlink{classBarScreen_a93ef91eff5bcac1a17ccb7b5a4811368}{nz\+\_\+max}}
+\begin{DoxyCompactList}\small\item\em The max of all bins excluding the first bin, which includes the voxels with value 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBarScreen_adf2fa1b3686c92bd20e8c0befc06caf7}\label{classBarScreen_adf2fa1b3686c92bd20e8c0befc06caf7}} 
+float \mbox{\hyperlink{classBarScreen_adf2fa1b3686c92bd20e8c0befc06caf7}{nz\+\_\+sum}}
+\begin{DoxyCompactList}\small\item\em The sum of all bins excluding the first bin, which includes the voxels with value 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBarScreen_a2222951d5a5ce44bb22da49e62e8f797}\label{classBarScreen_a2222951d5a5ce44bb22da49e62e8f797}} 
+bool \mbox{\hyperlink{classBarScreen_a2222951d5a5ce44bb22da49e62e8f797}{linked}}
+\begin{DoxyCompactList}\small\item\em Start listening of events afther an image has been set. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBarScreen_a3c0cbb54bb95017b259687ee79232a08}\label{classBarScreen_a3c0cbb54bb95017b259687ee79232a08}} 
+bool {\bfseries global\+Hist}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classBarScreen_ae652343345f7cc3f7726569c1195ee9a}\label{classBarScreen_ae652343345f7cc3f7726569c1195ee9a}} 
+\index{Bar\+Screen\+WL@{Bar\+Screen\+WL}!initialse\+Histogram@{initialse\+Histogram}}
+\index{initialse\+Histogram@{initialse\+Histogram}!Bar\+Screen\+WL@{Bar\+Screen\+WL}}
+\subsubsection{\texorpdfstring{initialse\+Histogram()}{initialseHistogram()}}
+{\footnotesize\ttfamily void Bar\+Screen\+::initialse\+Histogram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+Intialises the histogram. Should be called when changes on the num\+Bins or the data occur. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/display\+\_\+buildblock/barscreenwl.\+h\item 
+src/display\+\_\+buildblock/barscreenwl.\+cpp\end{DoxyCompactItemize}

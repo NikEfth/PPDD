@@ -1,0 +1,96 @@
+\hypertarget{classEclipseTool}{}\section{Eclipse\+Tool Class Reference}
+\label{classEclipseTool}\index{Eclipse\+Tool@{Eclipse\+Tool}}
+Inheritance diagram for Eclipse\+Tool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classEclipseTool}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTool_a68dea3e4c911f3174176084d350865cc}\label{classTool_a68dea3e4c911f3174176084d350865cc}} 
+void {\bfseries this\+\_\+selection} (const Q\+Vector$<$ Q\+PointF $>$ \&, Qwt\+Plot $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEclipseTool_abc2b8f954c0c83f31b37b759f07f7f40}\label{classEclipseTool_abc2b8f954c0c83f31b37b759f07f7f40}} 
+{\bfseries Eclipse\+Tool} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{classTool_a020bd5757a03ea7321848a3874f3a8cb}\label{classTool_a020bd5757a03ea7321848a3874f3a8cb}} 
+virtual bool {\bfseries event\+Filter} (Q\+Object $\ast$, Q\+Event $\ast$)
+\item 
+\mbox{\Hypertarget{classTool_aa30c64915020a71d0ea8650e8e966336}\label{classTool_aa30c64915020a71d0ea8650e8e966336}} 
+virtual Q\+String {\bfseries get\+\_\+name} () const
+\item 
+\mbox{\Hypertarget{classTool_a5cb18e4c28ab3d8d39535db5d2213c81}\label{classTool_a5cb18e4c28ab3d8d39535db5d2213c81}} 
+virtual void {\bfseries finished\+Selecting} ()=0
+\item 
+\mbox{\Hypertarget{classTool_a507adfcdafc818d9628b952001b93f3c}\label{classTool_a507adfcdafc818d9628b952001b93f3c}} 
+void {\bfseries get\+\_\+data} (Q\+Vector$<$ Q\+PointF $>$ \&, Qwt\+Plot $\ast$)
+\item 
+virtual void \mbox{\hyperlink{classTool_a7d9e7d03f4a34d71850cbbfc16ca8532}{clear\+Before\+Un\+Set}} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTool_a11f1da4092d196a7b91d3d60276586eb}\label{classTool_a11f1da4092d196a7b91d3d60276586eb}} 
+virtual void \mbox{\hyperlink{classTool_a11f1da4092d196a7b91d3d60276586eb}{clear\+Selection}} ()
+\begin{DoxyCompactList}\small\item\em Remove all curves from the c\+\_\+paint\+Device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTool_a81244366dc1b9f55465ed6f37b81033c}{check\+Point\+In\+Range}} (const Q\+PointF \&\+\_\+local)
+\item 
+\mbox{\Hypertarget{classTool_a453549f925313d28b19fc9a81aabfe01}\label{classTool_a453549f925313d28b19fc9a81aabfe01}} 
+virtual void \mbox{\hyperlink{classTool_a453549f925313d28b19fc9a81aabfe01}{select}} (const Q\+PointF \&)=0
+\begin{DoxyCompactList}\small\item\em On mouse press action. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTool_a734b60b6ecf4b9fa2e56186349a5a3cf}\label{classTool_a734b60b6ecf4b9fa2e56186349a5a3cf}} 
+virtual void \mbox{\hyperlink{classTool_a734b60b6ecf4b9fa2e56186349a5a3cf}{move}} (const Q\+PointF \&)=0
+\begin{DoxyCompactList}\small\item\em On mouse press and drag action. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTool_af0935d8e8edd73d8ec85424b5b15196b}\label{classTool_af0935d8e8edd73d8ec85424b5b15196b}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{classTool_a1e301a03c5806c900786760d80049380}\label{classTool_a1e301a03c5806c900786760d80049380}} 
+Qwt\+Plot\+Canvas $\ast$ {\bfseries c\+\_\+paint\+Device}
+\item 
+\mbox{\Hypertarget{classTool_af1d11cc5374ba7eb7c1d41cfb5d4e981}\label{classTool_af1d11cc5374ba7eb7c1d41cfb5d4e981}} 
+Qwt\+Plot\+Spectrogram $\ast$ {\bfseries d\+\_\+spectrogram}
+\item 
+Q\+Vector$<$ Q\+PointF $>$ \mbox{\hyperlink{classTool_a68be77a2e364a7b13d7206388ba5843e}{\+\_\+points}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classTool_a81244366dc1b9f55465ed6f37b81033c}\label{classTool_a81244366dc1b9f55465ed6f37b81033c}} 
+\index{Eclipse\+Tool@{Eclipse\+Tool}!check\+Point\+In\+Range@{check\+Point\+In\+Range}}
+\index{check\+Point\+In\+Range@{check\+Point\+In\+Range}!Eclipse\+Tool@{Eclipse\+Tool}}
+\subsubsection{\texorpdfstring{check\+Point\+In\+Range()}{checkPointInRange()}}
+{\footnotesize\ttfamily bool Tool\+::check\+Point\+In\+Range (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{\+\_\+local }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+This is a preliminiry check to see if the point is within the axis range. It has been proven somewhat week condition, as in many cases it fails to provide realible results. \mbox{\Hypertarget{classTool_a7d9e7d03f4a34d71850cbbfc16ca8532}\label{classTool_a7d9e7d03f4a34d71850cbbfc16ca8532}} 
+\index{Eclipse\+Tool@{Eclipse\+Tool}!clear\+Before\+Un\+Set@{clear\+Before\+Un\+Set}}
+\index{clear\+Before\+Un\+Set@{clear\+Before\+Un\+Set}!Eclipse\+Tool@{Eclipse\+Tool}}
+\subsubsection{\texorpdfstring{clear\+Before\+Un\+Set()}{clearBeforeUnSet()}}
+{\footnotesize\ttfamily virtual void Tool\+::clear\+Before\+Un\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [inherited]}}
+
+Cal this function to clean before unsetting a tool. It will try to tight up the screen. 
+
+Implemented in \mbox{\hyperlink{classPointerTool_a04c325128dc9ee27272eace9e70d15aa}{Pointer\+Tool}}, \mbox{\hyperlink{classLineTool_a2bcf5d5694e36445607c68c37e4f3f69}{Line\+Tool}}, \mbox{\hyperlink{classCrossPointerTool_a99e1b8f0669837dc5524c446e3dd401c}{Cross\+Pointer\+Tool}}, and \mbox{\hyperlink{classRectTool_a22ddb88797de61ed921a5cd3462383ea}{Rect\+Tool}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classTool_a68be77a2e364a7b13d7206388ba5843e}\label{classTool_a68be77a2e364a7b13d7206388ba5843e}} 
+\index{Eclipse\+Tool@{Eclipse\+Tool}!\+\_\+points@{\+\_\+points}}
+\index{\+\_\+points@{\+\_\+points}!Eclipse\+Tool@{Eclipse\+Tool}}
+\subsubsection{\texorpdfstring{\+\_\+points}{\_points}}
+{\footnotesize\ttfamily Q\+Vector$<$Q\+PointF$>$ Tool\+::\+\_\+points\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+This vector holds the characteristic points of the selected R\+OI. The \mbox{\hyperlink{classCrossPointerTool}{Cross\+Pointer\+Tool}} has just one point. The \mbox{\hyperlink{classLineTool}{Line\+Tool}} has two points (e.\+g. start and stop) e.\+t.\+c 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/tools\+\_\+buildblock/eclipsetool.\+h\item 
+src/tools\+\_\+buildblock/eclipsetool.\+cpp\end{DoxyCompactItemize}

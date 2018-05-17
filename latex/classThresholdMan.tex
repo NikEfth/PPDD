@@ -1,0 +1,61 @@
+\hypertarget{classThresholdMan}{}\section{Threshold\+Man Class Reference}
+\label{classThresholdMan}\index{Threshold\+Man@{Threshold\+Man}}
+Inheritance diagram for Threshold\+Man\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classThresholdMan}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classThresholdMan_a46424217b012608d39f365fec7881315}\label{classThresholdMan_a46424217b012608d39f365fec7881315}} 
+void {\bfseries notify\+Value\+Changed} (int value)
+\item 
+\mbox{\Hypertarget{classThresholdMan_a35de41fade07efb313b22ccfabcb49c2}\label{classThresholdMan_a35de41fade07efb313b22ccfabcb49c2}} 
+void {\bfseries notify\+Int\+Value\+Changed} (double value)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classThresholdMan_a08132244c52a0a51d2cd6f4019508e34}\label{classThresholdMan_a08132244c52a0a51d2cd6f4019508e34}} 
+void {\bfseries double\+Value\+Changed} (double value)
+\item 
+\mbox{\Hypertarget{classThresholdMan_a33b5f9611dc6dba2c9fed171d7c35f77}\label{classThresholdMan_a33b5f9611dc6dba2c9fed171d7c35f77}} 
+void {\bfseries int\+Value\+Changed} (int value)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classThresholdMan_a6a5c7632349045654bf3c8fcb3f16e85}\label{classThresholdMan_a6a5c7632349045654bf3c8fcb3f16e85}} 
+{\bfseries Threshold\+Man} (\mbox{\hyperlink{classScreen__manager}{Screen\+\_\+manager}} $\ast$\+\_\+p, Q\+Widget $\ast$parent=0)
+\item 
+float \mbox{\hyperlink{classThresholdMan_a86ada2cb5a498fe86616031d1f5e0fc8}{get\+Threshold\+Value}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classThresholdMan_a56c9f2cd7a3c484871206c4c21e446b5}\label{classThresholdMan_a56c9f2cd7a3c484871206c4c21e446b5}} 
+\mbox{\hyperlink{classScreen__manager}{Screen\+\_\+manager}} $\ast$ {\bfseries sc}
+\item 
+\mbox{\Hypertarget{classThresholdMan_acb9ba537b13a1e0b6cf4dbed0dc23a1e}\label{classThresholdMan_acb9ba537b13a1e0b6cf4dbed0dc23a1e}} 
+\mbox{\hyperlink{classBarScreenHistogram}{Bar\+Screen\+Histogram}} $\ast$ \mbox{\hyperlink{classThresholdMan_acb9ba537b13a1e0b6cf4dbed0dc23a1e}{my\+\_\+histogram}}
+\begin{DoxyCompactList}\small\item\em The histogram to display the selection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThresholdMan_ae437bf23f0a7132b592ab2d7016ca2ad}\label{classThresholdMan_ae437bf23f0a7132b592ab2d7016ca2ad}} 
+\mbox{\hyperlink{classWorkerThresholder}{Worker\+Thresholder}} $\ast$ \mbox{\hyperlink{classThresholdMan_ae437bf23f0a7132b592ab2d7016ca2ad}{preview\+\_\+thresholder}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classWorker}{Worker}} that performs the operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classThresholdMan_a86ada2cb5a498fe86616031d1f5e0fc8}\label{classThresholdMan_a86ada2cb5a498fe86616031d1f5e0fc8}} 
+\index{Threshold\+Man@{Threshold\+Man}!get\+Threshold\+Value@{get\+Threshold\+Value}}
+\index{get\+Threshold\+Value@{get\+Threshold\+Value}!Threshold\+Man@{Threshold\+Man}}
+\subsubsection{\texorpdfstring{get\+Threshold\+Value()}{getThresholdValue()}}
+{\footnotesize\ttfamily float Threshold\+Man\+::get\+Threshold\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Depending on wether manual or Otsu operation this function will return the appropriate threshold value. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/ui\+\_\+buildblock/thresholdman.\+h\item 
+src/ui\+\_\+buildblock/thresholdman.\+cpp\end{DoxyCompactItemize}

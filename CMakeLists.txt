@@ -12,68 +12,51 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+#SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
 
-cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-
-project(Sino_viewer VERSION 0.1)
+#set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 # Set additional project information
-set(COMPANY "UoH")
-set(COPYRIGHT "Copyright (c) 2017 Nikos. All rights reserved.")
-#set(IDENTIFIER "com.example.Example")
 
-if(UNIX)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")
+PROJECT(PPDD VERSION 0.5 LANGUAGES CXX)
+set(COPYRIGHT "Copyright (c) 2017 Nikos Efthimiou. All rights reserved.")
+
+# gcc specific stuff
+if (CMAKE_COMPILER_IS_GNUCC)
+     add_definitions(-Wall -Wno-deprecated)
+     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -std=gnu++0x -ffast-math")
+endif ()
+
+if((${CMAKE_CXX_COMPILER_ID} MATCHES "AppleClang") OR
+   (APPLE AND ${CMAKE_SYSTEM_NAME} MATCHES "Darwin" AND
+    ${CMAKE_CXX_COMPILER_ID} MATCHES "Clang"))
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 endif()
 
-#### we need the boost library from boost.org
-set(BOOST_ROOT CACHE PATH "root of Boost")
-find_package( Boost 1.36.0 REQUIRED )
-include_directories(${Boost_INCLUDE_DIRS})
+# Find the Qt components
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
-# Find ROOT ...  in any case. 
-
-find_package(ROOT REQUIRED)
-include(${ROOT_USE_FILE})
-
-find_path(QWT_INCLUDE_DIR NAMES qwt_plot.h PATH_SUFFIXES qwt qwt-qt5)
-set ( QWT_INCLUDE_DIRS ${QWT_INCLUDE_DIR} )
-include_directories(${QWT_INCLUDE_DIR})
-
-find_library ( QWT_LIBRARY
-     NAMES qwt qwt-qt3 qwt-qt4 qwt-qt5
-   )
-
-set ( QWT_LIBRARIES ${QWT_LIBRARY} )
-
-find_package(STIR)
-
-include_directories(/home/nikos/Workspace/src/STIR.install.release/include)
-#include_directories(${CMAKE_SOURCE_DIR})
-
-file(GLOB HEADERS "*.h")
-file(GLOB SOURCES "*.cpp")
-file(GLOB UIS "*.ui")
-file(GLOB RESOURCES "*.qrc")
-
+# -- This is required in order to build QT elements
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
-# Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-# Instruct CMake to run moc automatically when needed.
 
+add_library(ppdd_buildblock "")
+add_library(ppdd_display "")
+add_library(ppdd_tools "")
+add_library(ppdd_ui "")
+# add_library(ppdd_icons "")
 
-# Find the QtWidgets library
-find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+include(src/CMakeLists.txt)
+#ADD_SUBDIRECTORY(src)
 
-LINK_DIRECTORIES(/home/nikos/Workspace/src/STIR.install.release/lib)
-
-# Tell CMake to create the helloworld executable
-add_executable(${PROJECT_NAME} ${SOURCES} ${UIS} ${RESOURCES})
-
+add_executable(${PROJECT_NAME} main.cpp resources.qrc)
 # Use the Widgets module from Qt 5.
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets ${QWT_LIBRARIES} Qt5::Gui -Wl,--start-group IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display -Wl,--end-group)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui  -Wl,--start-group ppdd_buildblock ppdd_ui ppdd_display ppdd_tools -Wl,--end-group)
 
+
+set(CONFIGURED_ONCE TRUE CACHE INTERNAL
+    "A flag showing that CMake has configured at least once.")
