@@ -88,7 +88,7 @@ bool BarScreen::setScreen(QWidget* _sc, const bool _global)
 bool BarScreen::setImageData()
 {
     initialseHistogram();
-    moveMarkers(*sc->getActiveDisplayScreen()->getScreen()->get_max_vis_value_ptr(),
+    moveMarkers(*sc->getActiveDisplayScreen()->getScreen()->get_min_vis_value_ptr(),
                 *sc->getActiveDisplayScreen()->getScreen()->get_max_vis_value_ptr());
     this->setAxisScale( QwtPlot::xBottom,ll,uu);
     replot_me();
@@ -170,27 +170,23 @@ QPointF BarScreen::getMaxFrequencyPoint()
     return getPointofBin(_index);
 }
 
-QPointF BarScreen::getLastBinPoint()
+QPointF BarScreen::getMinFrequencyPoint()
 {
-    int _index = 0;
+    int _index = getIndexOfFistNZBin();
+    return getPointofBin(_index);
+}
 
-    bool locked = false;
-
-    for ( int j = 0; j < numBins; j++ )
+int BarScreen::getIndexOfFistNZBin()
+{
+    for ( int j = 1; j < numBins; j++ )
     {
         double val = gsl_histogram_get(h, j);
-        if(val == 0.0 && !locked)
-        {
-            _index = j-1;
-            locked = true;
-        }
         if(val > 0.0)
         {
-            locked = false;
+            return j;
         }
     }
-
-    return getPointofBin(_index);
+    return 1;
 }
 
 double BarScreen::getBinValue(const int& _index)

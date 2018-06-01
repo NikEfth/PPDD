@@ -331,8 +331,8 @@ void ThresholdMan::on_chkGlobal_clicked(bool _b)
 float ThresholdMan::getThresLevelTriangle()
 {
 
-    QPointF pointA = my_histogram->getMaxFrequencyPoint();
-    QPointF pointB = my_histogram->getLastBinPoint();
+    QPointF pointA = my_histogram->getPointofBin(0);
+    QPointF pointB = my_histogram->getMaxFrequencyPoint();
 
     QVector2D BA(pointB - pointA);
 
@@ -353,7 +353,6 @@ float ThresholdMan::getThresLevelTriangle()
         {
             dist = _dist;
             ret = pointB.x() - pointC.x();
-            //            max_i = i;
         }
     }
     return ret;

@@ -13,7 +13,7 @@ target_sources(ppdd_display
         "${CMAKE_CURRENT_LIST_DIR}/display_screen_curve.h"
         "${CMAKE_CURRENT_LIST_DIR}/canvaspicker.cpp"
         "${CMAKE_CURRENT_LIST_DIR}/canvaspicker.h"
-		    "${CMAKE_CURRENT_LIST_DIR}/bar_screen.cpp"
+        "${CMAKE_CURRENT_LIST_DIR}/bar_screen.cpp"
         "${CMAKE_CURRENT_LIST_DIR}/bar_screen.h"
         "${CMAKE_CURRENT_LIST_DIR}/barscreenhistogram.cpp"
         "${CMAKE_CURRENT_LIST_DIR}/barscreenhistogram.h"
@@ -72,13 +72,14 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # else()
   #message(WARNING "STIR not found. This is probably not what you want. If you need it, set STIR_DIR.")
-  set(STIR_DIR /home/nikos/Documents/install-HSTIR_outwards-Desktop-Debug/)
-  include_directories(STIR_INCLUDE_DIRS ${STIR_DIR}/include)
-  link_directories(${STIR_DIR}/lib)
+#  set(STIR_DIR /home/nikos/Documents/install-HSTIR_outwards-Desktop-Debug/)
+  set(STIR_INCLUDE_DIRS "default value" CACHE FILEPATH "description")
+  set(STIR_LIBRARY "default value" CACHE FILEPATH "description")
+  include_directories( ${STIR_INCLUDE_DIRS})
+  link_directories(${STIR_LIBRARY})
 
   find_library (STIR_LIBRARY
-  	NAMES IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display
-  	PATHS /home/nikos/Documents/install-HSTIR_outwards-Desktop-Debug/lib)
+  	NAMES IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display)
 # endif()
 
 message(STATUS ${STIR_LIBRARIES})
