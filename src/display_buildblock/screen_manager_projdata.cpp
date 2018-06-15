@@ -35,7 +35,9 @@ int screen_manager_ProjData::getNumOfArrays()
 
 Array<2, float> screen_manager_ProjData::getArray2D(const int& _i) const
 {
-    // should follow a relavant reasoning.
+	// should follow a relavant reasoning.
+	Array < 2, float> ret; 
+	return ret;
 }
 
 void screen_manager_ProjData::setArray2D(const Array<2,float>&, const int&)
@@ -96,7 +98,7 @@ bool screen_manager_ProjData::loadFile(const QString fileName)
 
 //    myFullFileName = fileName;
 
-//    return true;
+    return true;
 }
 
 void screen_manager_ProjData::display()
@@ -204,21 +206,21 @@ void screen_manager_ProjData::initialise_controls_for_seg()
 
 void screen_manager_ProjData::initialise_controls_for_TOF()
 {
-    minTOFpos = this->projData_sptr->get_min_tof_pos_num();
-    maxTOFpos = this->projData_sptr->get_max_tof_pos_num();
+    //minTOFpos = this->projData_sptr->get_min_tof_pos_num();
+   // maxTOFpos = this->projData_sptr->get_max_tof_pos_num();
 
-    curTOFnum = 0;
+    //curTOFnum = 0;
 
-    selectTOF_cmb->blockSignals(true);
-    for (int i = minTOFpos; i <= maxTOFpos; ++i)
-        selectTOF_cmb->addItem(QString::number(i));
+    //selectTOF_cmb->blockSignals(true);
+    //for (int i = minTOFpos; i <= maxTOFpos; ++i)
+      //  selectTOF_cmb->addItem(QString::number(i));
 
-    int index = selectTOF_cmb->findText("0"); //use default exact match
+    ///nt index = selectTOF_cmb->findText("0"); //use default exact match
 
-    if(index >= 0)
-        selectTOF_cmb->setCurrentIndex(index);
+    //if(index >= 0)
+      //  selectTOF_cmb->setCurrentIndex(index);
 
-    selectTOF_cmb->blockSignals(false);
+    //selectTOF_cmb->blockSignals(false);
 
 }
 
@@ -315,12 +317,15 @@ void screen_manager_ProjData::on_selectSeg_cmb_currentIndexChanged(QString index
 
 CartesianCoordinate3D<float> screen_manager_ProjData::getCurrentCursorInmm()
 {
- int nikos = 0;
+	CartesianCoordinate3D<float> nikos;
+	return nikos;
+
 }
 
 double screen_manager_ProjData::getValueAt(const SimpleVector3D<int> _c)
 {
-int nikos = 0;
+double nikos = 0;
+return nikos;
 }
 
 void screen_manager_ProjData::on_selectTOF_cmb_currentIndexChanged(QString index)
@@ -409,7 +414,7 @@ bool screen_manager_ProjData::setState(qint16 newViewOrder,
 //    if(this->hasHistograms)
 //        this->draw_histograms();
 
-//    return true;
+    return true;
 }
 
 void screen_manager_ProjData::applyVizValuesToAllContainers(const double &_min, const double &_max)
@@ -460,6 +465,8 @@ QSize screen_manager_ProjData::setOrientation(Orientation _o)
 
 //    draw_plot_area();
 //    Screen_manager::swap_view();
+	QSize ret; 
+	return ret;
 }
 
 void screen_manager_ProjData::save_as_array(int this_label)
@@ -567,4 +574,6 @@ const IndexRange<3> screen_manager_ProjData::getRanges3D()
     {
         int nikos  =0;
     }
+	const IndexRange<3> ret; 
+	return ret;
 }

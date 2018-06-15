@@ -91,6 +91,8 @@ bool BarScreenHistogram::event( QEvent *ev )
     }
 
     QwtPlot::event(ev);
+
+	return true;
 }
 
 

@@ -102,7 +102,10 @@ public:
     Configuration* get_configuration() const;
 
     virtual VoxelsOnCartesianGrid<float> getSlice(const int& num, const Orientation& o = Transverse)
-    {int nikos = 0;}
+    {
+		VoxelsOnCartesianGrid<float> ret;
+		return ret;
+	}
 
     void block_activity(bool state);
     //! Return the minimum value of the entire dataset.

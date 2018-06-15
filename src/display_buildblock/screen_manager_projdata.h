@@ -60,11 +60,14 @@ public:
     virtual VoxelsOnCartesianGrid<float>* getData_ptr()
     {
         //return dynamic_cast<VoxelsOnCartesianGrid<float> * > (density_sptr.get());
+		 VoxelsOnCartesianGrid<float>* ret; 
+		 return ret;
     }
 
     virtual std::shared_ptr<VoxelsOnCartesianGrid<float> > getData_sptr()
     {
-        int nikos = 0;
+		std::shared_ptr<VoxelsOnCartesianGrid<float> > ret; 
+		return ret;
     }
 
     //! The current position of the currentCursor

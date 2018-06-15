@@ -48,7 +48,7 @@ BarScreenWL::moveMarkersby(QPointF dis)
     if (tmp_uu >=  gsl_histogram_max(h))
         return;
 
-    double increment;
+    double increment = 0.0;
     gsl_histogram_increment(h, increment);
 
     if ((tmp_uu - tmp_ll) < increment)
@@ -173,6 +173,7 @@ bool BarScreenWL::event( QEvent *ev )
         }
     }
     QwtPlot::event(ev);
+	return true;
 }
 
 void

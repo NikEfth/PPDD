@@ -33,20 +33,20 @@ void ListROIStat::unSetData()
 
 bool ListROIStat::analyseAll(const stir::PixelsOnCartesianGrid<float>& _w)
 {
-
+	return true;
 }
 
 float ListROIStat::getArea(const stir::PixelsOnCartesianGrid<float>& _w)
 {
-
+	return 0.0;
 }
 
 float ListROIStat::getMean(const stir::PixelsOnCartesianGrid<float>& _w)
 {
-
+	return 0.0;
 }
 
 float ListROIStat::getSD(const stir::PixelsOnCartesianGrid<float>& _w)
 {
-
+	return 0.0;
 }

@@ -2,7 +2,9 @@
 #include "ui_screen_manager.h"
 
 #include "stir/PixelsOnCartesianGrid.h"
-#include "stir/IO/ITKImageInputFileFormat.h"
+#if HAVE_ITK
+	#include "stir/IO/ITKImageInputFileFormat.h"
+#endif
 #include "stir/IO/InputFileFormat.h"
 #include "stir/IO/FileSignature.h"
 #include "stir/BasicCoordinate.h"
@@ -59,8 +61,10 @@ bool Screen_manager_ImageData::loadFile(const QString fileName)
         this->density_sptr.reset(dd->clone());
         this_input = interfile;
     }
+#if HAVE_ITK
     else
     {
+
         FileSignature f(fileName.toStdString());
 
         InputFileFormat<DiscretisedDensity<3, float> >* d = new ITKImageInputFileFormat();
@@ -82,8 +86,9 @@ bool Screen_manager_ImageData::loadFile(const QString fileName)
             this->density_sptr = std::move(ddu);
             this_input = dicom;
         }
-    }
 
+    }
+#endif
     if (is_null_ptr(density_sptr))
     {
         QMessageBox::critical(this, tr("Error reading Image Data"),
@@ -159,7 +164,7 @@ void Screen_manager_ImageData::showCursor(const bool &state)
 
 void Screen_manager_ImageData::_setCursor(const QPoint& _p, QwtPlot* _d)
 {
-    display_screen_container *d = qobject_cast< display_screen_container*>(_d->parent()->parent());
+    display_screen_container *d = dynamic_cast< display_screen_container*>(_d->parent()->parent());
 
     if (d != 0)
     {
@@ -363,7 +368,7 @@ bool Screen_manager_ImageData::setState(qint16 newViewOrder,
     //    if(this->hasHistograms)
     //        this->draw_histograms();
 
-    //    return true;
+        return true;
 }
 
 void Screen_manager_ImageData::writeToDisk(const QString & _p)
@@ -397,7 +402,7 @@ void Screen_manager_ImageData::save_as_array(int this_label)
 
 void Screen_manager_ImageData::onCursorChanged()
 {
-    display_screen_container* d = qobject_cast < display_screen_container*> (sender());
+    display_screen_container* d = dynamic_cast < display_screen_container*> (sender());
     if (cursorStatus && d)
     {
         if (d != my_containers.at(0).get())

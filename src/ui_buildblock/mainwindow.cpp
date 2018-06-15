@@ -289,7 +289,9 @@ bool MainWindow::append_to_workspace(Screen_manager *child, bool prepend_to_rece
     appendToOpenedList(child);
 
     if(prepend_to_recent)
-        MainWindow::prependToRecentFiles(child->getFullFilePath());
+        MainWindow::prependToRecentFiles(child->getFullFilePath()); 
+
+	return true;
 }
 
 static inline QString recentFilesKey() { return QStringLiteral("recentFileList"); }
@@ -814,7 +816,7 @@ bool MainWindow::forceSync(Screen_manager* from, Screen_manager* to)
     //        return toIm->setState(fromIm->igetDisplayLayout(),
     //                              fromIm->getCurrentCursor(),
     //                              fromIm->getViewportsIndex());
-
+	return true;
 }
 
 void MainWindow::grouped_scrolling(qint16 value)

@@ -41,6 +41,11 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-target_link_libraries(ppdd_ui PUBLIC ppdd_buildblock Qt5::Core Qt5::Widgets Qt5::Gui)
-# target_compile_definitions(myLib PUBLIC USE_BARRY)
+IF (WIN32)
+	add_definitions(-D QWT_DLL)
+	target_link_libraries(ppdd_ui PUBLIC ppdd_buildblock Qt5::Core Qt5::Widgets Qt5::Gui)
+ELSE()
+  # set stuff for other systems
+ENDIF()
+
 target_include_directories(ppdd_ui PUBLIC "${CMAKE_CURRENT_LIST_DIR}")

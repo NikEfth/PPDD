@@ -15,7 +15,7 @@ CanvasPicker::CanvasPicker( QwtPlot *plot ):
     d_selectedCurve( NULL ),
     d_selectedPoint( -1 )
 {
-    QwtPlotCanvas *canvas = qobject_cast<QwtPlotCanvas *>( plot->canvas() );
+    QwtPlotCanvas *canvas = dynamic_cast<QwtPlotCanvas *>( plot->canvas() );
     canvas->installEventFilter( this );
 
     // We want the focus, but no focus rect. The
@@ -43,12 +43,12 @@ CanvasPicker::CanvasPicker( QwtPlot *plot ):
 
 QwtPlot *CanvasPicker::plot()
 {
-    return qobject_cast<QwtPlot *>( parent() );
+    return dynamic_cast<QwtPlot *>( parent() );
 }
 
 const QwtPlot *CanvasPicker::plot() const
 {
-    return qobject_cast<const QwtPlot *>( parent() );
+    return dynamic_cast<const QwtPlot *>( parent() );
 }
 
 bool CanvasPicker::event( QEvent *ev )
@@ -278,7 +278,7 @@ void CanvasPicker::move( const QPoint &pos )
        updated before we paint the cursor on it.
      */
     QwtPlotCanvas *plotCanvas =
-        qobject_cast<QwtPlotCanvas *>( plot()->canvas() );
+        dynamic_cast<QwtPlotCanvas *>( plot()->canvas() );
 
     plotCanvas->setPaintAttribute( QwtPlotCanvas::ImmediatePaint, true );
     plot()->replot();

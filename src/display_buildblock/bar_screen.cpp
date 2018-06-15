@@ -70,7 +70,9 @@ void BarScreen::setNumBin(const int& _n)
 
 void BarScreen::initialseHistogram()
 {
-    gsl_histogram_free(h);
+	if(!is_null_ptr(h))
+		if(h->range > 0)
+			gsl_histogram_free(h);
     series.resize(numBins);
     intervalA.resize(numBins);
     h = gsl_histogram_alloc(numBins);
@@ -83,6 +85,8 @@ bool BarScreen::setScreen(QWidget* _sc, const bool _global)
     globalHistReady = false;
     setImageData();
     linked = true;
+
+	return true;
 }
 
 bool BarScreen::setImageData()
@@ -93,6 +97,8 @@ bool BarScreen::setImageData()
     this->setAxisScale( QwtPlot::xBottom,ll,uu);
     replot_me();
     drawCurve();
+
+	return true; 
 }
 
 void BarScreen::unsetScreen(bool _state)
@@ -104,6 +110,8 @@ bool BarScreen::unsetImageData()
 {
     gsl_histogram_free(h);
     h=NULL;
+
+	return true;
 }
 
 BarScreen::~BarScreen()

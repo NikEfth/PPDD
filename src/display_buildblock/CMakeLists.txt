@@ -1,4 +1,3 @@
-
 target_sources(ppdd_display
     PRIVATE
         "${CMAKE_CURRENT_LIST_DIR}/display_screen.cpp"
@@ -37,7 +36,13 @@ target_sources(ppdd_display
 find_path(QWT_INCLUDE_DIR NAMES qwt_plot.h PATH_SUFFIXES qwt qwt-qt5 REQUIRED)
 set ( QWT_INCLUDE_DIRS ${QWT_INCLUDE_DIR})
 find_library ( QWT_LIBRARY
-     NAMES qwt qwt-qt3 qwt-qt4 qwt-qt5 IMPORTED)
+     NAMES qwt qwtd qwt-qt3 qwt-qt4 qwt-qt5 IMPORTED)
+
+find_library (GSL_LIBRARY
+	NAMES gsl_ddl gsl_ddl_d IMPORTED)
+
+find_library (GSL_BLAS_LIBRARY
+NAMES gslcblas gslcblas_d IMPORTED)
 
 include_directories(${QWT_INCLUDE_DIR})
 
@@ -50,6 +55,7 @@ if (ITK_FOUND)
   find_library( ITK_LIBRARIES NAMES ITKCommon IMPORTED)
 else()
   message(STATUS "ITK support disabled.")
+set(HAVE_ITK OFF)
 endif()
 
 # Find the Qt components
@@ -61,47 +67,22 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# STIR required
-# find_package(STIR 3.1.0)
-# if (STIR_FOUND)
+set(STIR_INCLUDE_DIRS "default value" CACHE FILEPATH "description")
+set(STIR_LIBRARY "default value" CACHE FILEPATH "description")
+include_directories( ${STIR_INCLUDE_DIRS})
+link_directories(${STIR_LIBRARY})
 
-#   # need to add this explicitly to get the STIR_REGISTRIES to compile
-#   include_directories(STIR_INCLUDE_DIRS ${STIR_INCLUDE_DIR})
-#   find_library(STIR_LIBRARY NAMES 
-#   	IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display)
-
-# else()
-  #message(WARNING "STIR not found. This is probably not what you want. If you need it, set STIR_DIR.")
-#  set(STIR_DIR /home/nikos/Documents/install-HSTIR_outwards-Desktop-Debug/)
-  set(STIR_INCLUDE_DIRS "default value" CACHE FILEPATH "description")
-  set(STIR_LIBRARY "default value" CACHE FILEPATH "description")
-  include_directories( ${STIR_INCLUDE_DIRS})
-  link_directories(${STIR_LIBRARY})
-
-  find_library (STIR_LIBRARY
+find_library (STIR_LIBRARY
   	NAMES IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display)
-# endif()
 
 message(STATUS ${STIR_LIBRARIES})
 
-# Check for libBoard for high quality printing
-set(LIBBOARD_BASE "" CACHE FILEPATH "Headers path for libBoard - high quality printing")
-#set(LIBBOARD_LIB "" CACHE FILEPATH "Libs path for libBoard - high quality printing")
+IF (WIN32)
+	add_definitions(-D QWT_DLL)
+	target_link_libraries(ppdd_display PUBLIC ${ITK_LIBRARIES} Qt5::Core Qt5::Widgets ${QWT_LIBRARY} Qt5::Gui IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display ${GSL_LIBRARY} ${GSL_BLAS_LIBRARY})
+ELSE()
+  # set stuff for other systems
+ENDIF()
 
-include_directories(${LIBBOARD_BASE}/include)
 
-find_library(LIBBOARD_LIBRARY
-  NAMES board
-  PATHS ${LIBBOARD_BASE}/lib)
-
-if(LIBBOARD_LIBRARY)
-  message("libBoard library found!")
-  set(LIBBOARD_FOUND ON)
-else()
-  message(WARNING "libBoard library not found")
-  set(LIBBOARD_FOUND OFF)
-endif()
-
-target_link_libraries(ppdd_display PUBLIC ${LIBBOARD_LIBRARY} ${ITK_LIBRARIES} Qt5::Core Qt5::Widgets ${QWT_LIBRARY} Qt5::Gui -Wl,--start-group IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display -Wl,--end-group libgsl.so libgslcblas.so)
-#target_include_directories(ppdd_display PUBLIC "${CMAKE_CURRENT_LIST_DIR}")
 install(TARGETS ppdd_display DESTINATION lib)

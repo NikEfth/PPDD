@@ -64,4 +64,6 @@ QVector<float>
 WorkerThresholder::getResult()
 {
     //    return data;
+	QVector<float> ret; 
+	return ret;
 }

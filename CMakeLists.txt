@@ -53,9 +53,11 @@ add_library(ppdd_ui "")
 include(src/CMakeLists.txt)
 #ADD_SUBDIRECTORY(src)
 
-add_executable(${PROJECT_NAME} main.cpp resources.qrc)
+qt5_add_resources(PROJECT_RESOURCE resources.qrc)
+
+add_executable(${PROJECT_NAME} main.cpp ${PROJECT_RESOURCE})
 # Use the Widgets module from Qt 5.
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui  -Wl,--start-group ppdd_buildblock ppdd_ui ppdd_display ppdd_tools -Wl,--end-group)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui  ppdd_buildblock ppdd_ui ppdd_display ppdd_tools)
 
 
 set(CONFIGURED_ONCE TRUE CACHE INTERNAL
