@@ -1,6 +1,8 @@
 #include "thresholdman.h"
 #include "ui_thresholdman.h"
 
+#include "stir/geometry/line_distances.h"
+
 #include <QMessageBox>
 
 ThresholdMan::ThresholdMan(Screen_manager *_p, QWidget *parent) :
@@ -331,28 +333,21 @@ void ThresholdMan::on_chkGlobal_clicked(bool _b)
 float ThresholdMan::getThresLevelTriangle()
 {
 
-    QPointF pointA = my_histogram->getPointofBin(0);
-    QPointF pointB = my_histogram->getMaxFrequencyPoint();
+    CartesianCoordinate3D<float> pointA = my_histogram->getPointofBin(0);
+    CartesianCoordinate3D<float> pointB = my_histogram->getMaxFrequencyPoint();
 
-    QVector2D BA(pointB - pointA);
-
-    //t = [(p-v) . (w-v)] / |w-v|^2
-    int numBins = ui->spinBox->value();
+    LORAs2Points<float> hypotenous(pointA, pointB);
     double dist = 0.0;
-    int max_i = 0;
-
     float ret = 0.0;
 
-    for(int i = 1; i < numBins-1; i++)
+    for(int i = 1; i < my_histogram->getMaxNonZeroBin()-1; i++)
     {
-        QPointF pointC = my_histogram->getPointofBin(i);
-        QVector2D vC(pointC);
-
-        double _dist = BA.distanceToPoint(vC);
+        CartesianCoordinate3D<float> pointC = my_histogram->getPointofBin(i);
+        double _dist = distance_between_line_and_point<float>(hypotenous, pointC);
         if (_dist > dist)
         {
             dist = _dist;
-            ret = pointB.x() - pointC.x();
+            ret = pointC.x();
         }
     }
     return ret;
@@ -395,8 +390,7 @@ float ThresholdMan::getThresLevelOtsu()
         if(_bcv > bcv)
         {
             bcv = _bcv;
-            QPointF pointC = my_histogram->getPointofBin(i);
-            ret = pointC.x();
+            ret = my_histogram->getPointofBin(i).x();
         }
     }
 
@@ -440,7 +434,7 @@ float ThresholdMan::getThresLevelOtsuSP()
         if(_bcv > bcv)
         {
             bcv = _bcv;
-            QPointF pointC = my_histogram->getPointofBin(i);
+            CartesianCoordinate3D<float> pointC = my_histogram->getPointofBin(i);
             ret = pointC.x();
         }
     }

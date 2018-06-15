@@ -81,7 +81,7 @@ IF (WIN32)
 	add_definitions(-D QWT_DLL)
 	target_link_libraries(ppdd_display PUBLIC ${ITK_LIBRARIES} Qt5::Core Qt5::Widgets ${QWT_LIBRARY} Qt5::Gui IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display ${GSL_LIBRARY} ${GSL_BLAS_LIBRARY})
 ELSE()
-  # set stuff for other systems
+  target_link_libraries(ppdd_display PUBLIC ${ITK_LIBRARIES} Qt5::Core Qt5::Widgets ${QWT_LIBRARY} Qt5::Gui IO data_buildblock buildblock eval_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display ${GSL_LIBRARY} ${GSL_BLAS_LIBRARY})
 ENDIF()
 
 

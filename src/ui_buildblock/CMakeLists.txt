@@ -45,7 +45,7 @@ IF (WIN32)
 	add_definitions(-D QWT_DLL)
 	target_link_libraries(ppdd_ui PUBLIC ppdd_buildblock Qt5::Core Qt5::Widgets Qt5::Gui)
 ELSE()
-  # set stuff for other systems
+  target_link_libraries(ppdd_ui PUBLIC ppdd_buildblock Qt5::Core Qt5::Widgets Qt5::Gui)
 ENDIF()
 
 target_include_directories(ppdd_ui PUBLIC "${CMAKE_CURRENT_LIST_DIR}")

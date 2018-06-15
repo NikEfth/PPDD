@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.6.1, 2018-06-01T09:58:09. -->
+<!-- Written by QtCreator 4.6.2, 2018-06-15T03:36:58. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -105,19 +105,20 @@
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <valuelist type="QVariantList" key="CMake.Configuration">
-     <value type="QString">ALGLIB_BASE:FILEPATH=/home/nikos/Workspace/src/cpp/src</value>
+     <value type="QString">ALGLIB_BASE:FILEPATH=/home/nikos/Workspace/PPDD/cpp/src</value>
      <value type="QString">CMAKE_BUILD_TYPE:STRING=Debug</value>
      <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
      <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
      <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
+     <value type="QString">GSL_LIBRARY:FILEPATH=/usr/lib/libgsl.so</value>
      <value type="QString">LIBBOARD_BASE:FILEPATH=/home/nikos/Workspace/src/libboard</value>
      <value type="QString">LIBBOARD_FOUND:BOOL=ON</value>
      <value type="QString">LIBBOARD_INCLUDE:FILEPATH=/home/nikos/Workspace/src/libboard/include</value>
      <value type="QString">LIBBOARD_LIB:FILEPATH=/home/nikos/Workspace/src/libboard/lib</value>
      <value type="QString">LIBBOARD_LIBRARY:FILEPATH=/home/nikos/Workspace/src/libboard/lib/libboard.a</value>
      <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
-     <value type="QString">STIR_INCLUDE_DIRS:FILEPATH=/home/nikos/Documents/STIR_out.install/include</value>
-     <value type="QString">STIR_LIBRARY:FILEPATH=/home/nikos/Documents/STIR_out.install/lib</value>
+     <value type="QString">STIR_INCLUDE_DIRS:FILEPATH=/home/nikos/Workspace/src/STIR.install.PPDD/include</value>
+     <value type="QString">STIR_LIBRARY:FILEPATH=/home/nikos/Workspace/src/STIR.install.PPDD/lib</value>
     </valuelist>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/nikos/Workspace/Builds/PPDD.build</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">

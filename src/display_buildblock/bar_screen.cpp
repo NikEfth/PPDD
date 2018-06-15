@@ -159,26 +159,31 @@ BarScreen::updateHistogram()
     }
 }
 
-QPointF BarScreen::getPointofBin(const int& _index)
+CartesianCoordinate3D<float>
+BarScreen::getPointofBin(const int& _index)
 {
     if (_index > numBins)
-        return QPointF(-1, -1);
+        return CartesianCoordinate3D<float>(-1, -1, -1);
 
     double ls, hs;
     gsl_histogram_get_range(h, _index, &ls, &hs);
     float x_bin = ls + (hs-ls)*0.5f;
     float y_bin = gsl_histogram_get(h,_index);
 
-    return QPointF(x_bin, y_bin);
+    return CartesianCoordinate3D<float>(0.f, y_bin,x_bin);
 }
 
-QPointF BarScreen::getMaxFrequencyPoint()
+CartesianCoordinate3D<float> BarScreen::getMaxFrequencyPoint()
 {
-    int _index = maxNZBin;
-    return getPointofBin(_index);
+    return getPointofBin(maxNZBin);
 }
 
-QPointF BarScreen::getMinFrequencyPoint()
+int BarScreen::getMaxNonZeroBin()
+{
+    return maxNZBin;
+}
+
+CartesianCoordinate3D<float> BarScreen::getMinFrequencyPoint()
 {
     int _index = getIndexOfFistNZBin();
     return getPointofBin(_index);

@@ -461,17 +461,21 @@ QMdiSubWindow *MainWindow::findMdiChild(const QString &fileName) const
 int MainWindow::getCountMdiChild(const QString &fileName) const
 {
     int ret = 0;
-    QRegularExpression f("<\\d\\d\\d>");
+    int cut = fileName.lastIndexOf("<");
+    QString cleanFileName = fileName.mid(0, cut);
 
     for(QMdiSubWindow *window: ui->mdiArea->subWindowList()) {
         Screen_manager *mdiChild = qobject_cast<Screen_manager *>(window->widget());
-        if (mdiChild->getFullFilePath() == fileName)
-        {
-           QRegularExpressionMatch match = f.match(fileName);
-            if (match.hasMatch())
-                return match.captured().toInt();
 
-            ret++;
+        QFileInfo fi(mdiChild->getFullFilePath());
+        QString id = fi.absolutePath() + QDir::separator() + fi.baseName();
+
+        int cut = id.lastIndexOf("<");
+        id = id.mid(0, cut);
+
+        if (id == cleanFileName)
+        {
+           ret++;
         }
     }
     return ret;
@@ -1028,21 +1032,22 @@ void MainWindow::dataReady_ptr(VoxelsOnCartesianGrid<float>* f, int index,
     Screen_manager_ImageData *tmp = new Screen_manager_ImageData(f, curConfig,this);
     {
         QFileInfo fi(*active);
-        int count = getCountMdiChild(*active);
+        QString id = fi.absolutePath() + QDir::separator() + fi.baseName();
+        int count = getCountMdiChild(id);
         QString fn;
 
-        if (count == 1)
-        {
+//        if (count == 1)
+//        {
             QString number =  fi.baseName()+QString("<%1>").arg(count, 3, 10, QChar('0'));
             fn = fi.absolutePath() + QDir::separator()+ number+"."+fi.suffix();
-        }
-        else
-        {
-            QRegularExpression f("<\\d\\d\\d>");
-            QString number = QString("<%1>").arg(count+1, 3, 10, QChar('0'));
-            fn = fi.baseName().replace(f, number);
-            fn = fi.absolutePath() + QDir::separator()+ fn +"."+fi.suffix();
-        }
+//        }
+//        else
+//        {
+//            QRegularExpression f("<\\d\\d\\d>");
+//            QString number = QString("<%1>").arg(count, 3, 10, QChar('0'));
+//            fn = fi.baseName().replace(f, number);
+//            fn = fi.absolutePath() + QDir::separator()+ fn +"."+fi.suffix();
+//        }
         tmp->setFullFilePath(fn);
     }
     append_to_workspace(tmp, false, true);

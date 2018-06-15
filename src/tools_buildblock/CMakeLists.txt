@@ -72,7 +72,7 @@ IF (WIN32)
 	add_definitions(/bigobj /D QWT_DLL)
 	target_link_libraries(ppdd_tools PUBLIC Qt5::Core Qt5::Widgets Qt5::Gui IO data_buildblock buildblock eval_buildblock recon_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display )
 ELSE()
-  # set stuff for other systems
+  target_link_libraries(ppdd_tools PUBLIC Qt5::Core Qt5::Widgets Qt5::Gui -Wl,--start-group  IO data_buildblock buildblock eval_buildblock recon_buildblock listmode_buildblock modelling_buildblock numerics_buildblock Shape_buildblock display )
 ENDIF()
 
 target_include_directories(ppdd_tools PUBLIC "${ALGLIB_BASE}" "${CMAKE_CURRENT_LIST_DIR}")

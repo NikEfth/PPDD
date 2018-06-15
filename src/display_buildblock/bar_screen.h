@@ -104,16 +104,18 @@ public:
 
     virtual void initialisePlotArea();
 
-    QPointF getPointofBin(const int &_index);
+    CartesianCoordinate3D<float> getPointofBin(const int &_index);
     //! The the Point of the maximum non-Zero bin in the current
     //! histogram
-    QPointF getMaxFrequencyPoint();
+    CartesianCoordinate3D<float> getMaxFrequencyPoint();
+
+    int getMaxNonZeroBin();
     //! Get the index of the first bin which does not correspond to the
     //! zero value and it is nonzero
     int getIndexOfFistNZBin();
     //! Get the Point of minimun frequency which is not the zero
     //! value
-    QPointF getMinFrequencyPoint();
+    CartesianCoordinate3D<float> getMinFrequencyPoint();
 
     double getBinValue(const int& _index);
 

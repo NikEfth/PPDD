@@ -36,7 +36,7 @@ IF (WIN32)
 	add_definitions(-D QWT_DLL)
 	target_link_libraries(ppdd_buildblock PUBLIC Qt5::Core Qt5::Widgets ${QWT_LIBRARY} Qt5::Gui)
 ELSE()
-  # set stuff for other systems
+     target_link_libraries(ppdd_buildblock PUBLIC Qt5::Core Qt5::Widgets ${QWT_LIBRARY} Qt5::Gui)
 ENDIF()
 
 install(TARGETS ppdd_buildblock DESTINATION lib)

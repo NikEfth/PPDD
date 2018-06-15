@@ -2,7 +2,7 @@
 #include "ui_screen_manager.h"
 
 #include "stir/PixelsOnCartesianGrid.h"
-#if HAVE_ITK
+#ifdef HAVE_ITK
 	#include "stir/IO/ITKImageInputFileFormat.h"
 #endif
 #include "stir/IO/InputFileFormat.h"
@@ -61,7 +61,7 @@ bool Screen_manager_ImageData::loadFile(const QString fileName)
         this->density_sptr.reset(dd->clone());
         this_input = interfile;
     }
-#if HAVE_ITK
+#ifdef HAVE_ITK
     else
     {
 
