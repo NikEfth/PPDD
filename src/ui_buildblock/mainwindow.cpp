@@ -461,27 +461,23 @@ QMdiSubWindow *MainWindow::findMdiChild(const QString &fileName) const
 int MainWindow::getCountMdiChild(const QString &fileName) const
 {
     int ret = 0;
-    int cut = fileName.lastIndexOf("<");
-    QString cleanFileName = fileName.mid(0, cut);
+    QRegularExpression re("(?<=\()[^)]*");
 
     for(QMdiSubWindow *window: ui->mdiArea->subWindowList()) {
         Screen_manager *mdiChild = qobject_cast<Screen_manager *>(window->widget());
 
         QFileInfo fi(mdiChild->getFullFilePath());
         QString id = fi.absolutePath() + QDir::separator() + fi.baseName();
-
-        int cut = id.lastIndexOf("<");
-        id = id.mid(0, cut);
-
-        if (id == cleanFileName)
-        {
+        id.mid(id.lastIndexOf("<") >=0 ? id.size()-id.lastIndexOf("<")
+                                              : id.size());
+        if (!QString::compare(id, fileName))
            ret++;
         }
-    }
+//    int f = fileName.lastIndexOf("<");
+    if (fileName.lastIndexOf("<") >= 0)
+        ret++;
     return ret;
 }
-
-
 
 Screen_manager *MainWindow::findMdiChildInGrouped(const QString &fileName) const
 {

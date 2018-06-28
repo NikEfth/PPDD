@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['checkpointinrange',['checkPointInRange',['../classTool.html#a81244366dc1b9f55465ed6f37b81033c',1,'Tool']]],
-  ['clearbeforeunset',['clearBeforeUnSet',['../classLineTool.html#a2bcf5d5694e36445607c68c37e4f3f69',1,'LineTool::clearBeforeUnSet()'],['../classCrossPointerTool.html#a99e1b8f0669837dc5524c446e3dd401c',1,'CrossPointerTool::clearBeforeUnSet()'],['../classPointerTool.html#a04c325128dc9ee27272eace9e70d15aa',1,'PointerTool::clearBeforeUnSet()'],['../classRectTool.html#a22ddb88797de61ed921a5cd3462383ea',1,'RectTool::clearBeforeUnSet()'],['../classTool.html#a7d9e7d03f4a34d71850cbbfc16ca8532',1,'Tool::clearBeforeUnSet()']]],
-  ['clearcontainers',['clearContainers',['../classScreen__manager.html#a5896c354d45b0b4142a76b26f7081787',1,'Screen_manager']]],
-  ['clearcursors',['clearCursors',['../classdisplay__screen.html#aedda58c57969f054fb9bedd1ed01b62c',1,'display_screen::clearCursors()'],['../classdisplay__screen__raster.html#a0469e5189411a5b83d6386510832d46d',1,'display_screen_raster::clearCursors()']]],
-  ['clearcurves',['clearCurves',['../classdisplay__screen.html#a85b97edfde46cbe8136877c35bb6876d',1,'display_screen']]],
-  ['clearselection',['clearSelection',['../classLineTool.html#a53f84590f85e08426fe2d6bd39482555',1,'LineTool::clearSelection()'],['../classCrossPointerTool.html#a736f76da2473660084ea5ecc2fd313c1',1,'CrossPointerTool::clearSelection()'],['../classRectTool.html#ac1f75f3000ecc9549b81f918384b9802',1,'RectTool::clearSelection()'],['../classTool.html#a11f1da4092d196a7b91d3d60276586eb',1,'Tool::clearSelection()']]]
-];

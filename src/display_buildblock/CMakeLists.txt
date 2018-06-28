@@ -38,11 +38,21 @@ set ( QWT_INCLUDE_DIRS ${QWT_INCLUDE_DIR})
 find_library ( QWT_LIBRARY
      NAMES qwt qwtd qwt-qt3 qwt-qt4 qwt-qt5 IMPORTED)
 
+if(UNIX OR APPLE)
 find_library (GSL_LIBRARY
-	NAMES gsl_ddl gsl_ddl_d IMPORTED)
+	NAMES gsl IMPORTED)
 
 find_library (GSL_BLAS_LIBRARY
-NAMES gslcblas gslcblas_d IMPORTED)
+NAMES gslcblas IMPORTED)
+endif()
+
+if(WIN32)
+find_library (GSL_LIBRARY
+  NAMES gsl_ddl gsl_ddl_d IMPORTED)
+
+find_library (GSL_BLAS_LIBRARY
+NAMES gslcblas_ddl gslcblas_ddl_d IMPORTED)
+endif()
 
 include_directories(${QWT_INCLUDE_DIR})
 
